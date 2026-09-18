@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIRAYA | Pananampalataya at Paniniwala</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="brand-logo" id="home-logo-btn" style="color: #99001a;">
+                <i class="fa-solid fa-landmark-dome"></i> HIRAYA
+            </div>
+
+            <div class="search-box-container">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Maghanap sa Exhibit..." autocomplete="off">
+                </div>
+                <div id="search-results" class="search-dropdown"></div>
+            </div>
+
+            <div class="header-actions">
+                <button type="button" id="music-toggle" class="audio-btn" title="Play background music" aria-label="play background music" style="color: #ffbb00;">
+                    <i class="fa-solid fa-music" style="color: #ffbb00;"></i>
+                </button>
+                <div class="menu-trigger" id="menu-trigger" style="color: #ffbb00;">
+                    <i class="fa-solid fa-bars" style="color: #ffbb00;"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Side Navigation -->
+    <nav class="side-nav" id="side-nav">
+        <div class="nav-links">
+            <a href="#" id="nav-home"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#" id="nav-content"><i class="fa-solid fa-scroll"></i> Tampok na Aral</a>
+            <a href="#" id="nav-gallery"><i class="fa-solid fa-images"></i> Galerya</a>
+            <a href="#" id="nav-about"><i class="fa-solid fa-circle-info"></i> Tungkol sa Exhibit</a>
+            <a href="#" id="nav-references"><i class="fa-solid fa-bookmark"></i> Sanggunian at Koponan</a>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- PAGE 1: HOME SECTION -->
+    <main id="page-home" class="page-view active-page">
+        <section class="hero-section">
+            <div class="hero-content">
+                <span class="hero-tag" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:8px 16px; border:2px solid #ff2b2b; border-radius:8px; color:#ffffff; background:rgba(255,43,43,0.08); font-weight:700; letter-spacing:0.08em;">
+                    EXHIBIT PAMPAMANAN
+                    <i class="fa-solid fa-scroll" style="color:#ffffff; font-size:1rem;"></i>
+                </span>
+                <h1>PANINIWALA AT PANANAMPALATAYA</h1>
+                <p>Isang pagtuklas sa espiritwalidad, tradisyon, at pagkakakilanlan ng lipunang Pilipino.</p>
+                <div class="page-nav-controls">
+                    <button class="btn-primary" id="btn-explore" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px 22px; background:#f4c542; color:#000000; border:2px solid #f4c542; border-radius:12px; font-weight:700; letter-spacing:0.05em; box-shadow:0 10px 25px rgba(244,197,66,0.3);">
+                        Simulan ang Paglalakbay <i class="fa-solid fa-compass" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PAGE 2: FEATURED PAGE (HORIZONTAL LAYOUT) -->
+    <main id="page-content" class="page-view">
+        <section class="editorial-section">
+            <div class="container">
+                <span class="editorial-tag"><i class="fa-solid fa-fire"></i> PANGUNAHING TAMPOK</span>
+                
+                <div class="featured-split-layout">
+                    <!-- Image Left -->
+                    <div class="featured-media">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8K_bXtzTazUGjBYH_FkXIzvZhAxjbgIyoqafzQq-eeoCgbK9NOWrcmU4&s=10" alt="Anito Artifacts" class="feature-img">
+                    </div>
+                    
+                    <!-- Title & Description Right -->
+                    <div class="featured-text-content">
+                        <h2>Paniniwalang Anitismo</h2>
+                        <p>
+                            Ang <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank" class="text-link">Anitismo</a> ay isang sistema ng paniniwala ng mga katutubong Pilipino na nakasentro sa mga anito o espiritu, mga ninuno, at sa kabanalan ng kalikasan. Hindi lamang ito isang relihiyon na isinasagawa sa mga seremonya, ito ay malapit na kaugnay sa pang-araw-araw na buhay. Ang salitang "anito" ay tumutukoy sa mga espiritu ng kalikasan o sa mga kaluluwa ng mga yumao nang ninuno. Naniniwala ang mga sinaunang Pilipino na ang kanilang mga pumanaw na kamag-anak ay patuloy na gumagabay at nagbabantay sa kanila. Naimpluwensyahan nito kung paano tinatratro ng mga tao ang kalikasan, nagsasaka, naghahanda ng pagkain, nag-aalaga sa pamilya, at tumutugon sa sakit. <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank">Scribd: Anitismo Document</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Page Navigation Controls -->
+                <div class="page-nav-controls">
+                    <button class="btn-secondary" onclick="navigateTo('home')">
+                        <i class="fa-solid fa-arrow-left"></i> Bumalik
+                    </button>
+                    <button class="btn-primary" onclick="navigateTo('gallery')">
+                        Susunod <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PAGE 3: GALLERY PAGE (SMOOTH CAROUSEL) -->
+    <main id="page-gallery" class="page-view">
+        <section class="info-section">
+            <div class="container">
+                <span class="editorial-tag">KOLEKSYON NG EXHIBIT</span>
+                <h2 class="section-title">Galerya ng mga Tradisyon</h2>
+                
+                <div class="carousel-container">
+                    <div class="carousel-viewport carousel-wrapper" id="carousel-wrapper">
+                        <div class="carousel-track" id="carousel-track">
+                            
+                            <!-- Senakulo -->
+                            <div class="gallery-card" onclick="openModal('Ang Senakulo', 'Ang Senakulo ay isang tradisyunal na dulaang panrelihiyon na ginaganap sa kalsada tuwing Semana Santa na naglalarawan sa paghihirap at kamatayan ni Hesukristo. Nagmula ang pangalan nito sa salitang Cenaculo na tumutukoy sa Upper Room kung saan ginanap ang Huling Hapunan. Nagsimula ang pagtatanghal nito noong hulihan ng ika-17 siglo o unang bahagi ng ika-18 siglo mula sa mga aklat ng Pasyon. Karaniwan itong isinasagawa sa mga kalsada, bayan, at plaza. <br><br><strong>Sources:</strong> <a href=\'https://www.nationalmuseum.gov.ph/2022/04/15/senakulo/\' target=\'_blank\'>National Museum of the Philippines: Senakulo</a>.')">
+                                <div class="media-container">
+                                    <img src="https://brahmineyes.wordpress.com/wp-content/uploads/2014/04/dsc_0064-2.jpg" alt="Senakulo procession" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-masks-theater"></i> Ang Senakulo</h3>
+                                    <p>Tradisyonal na Dulaang Panrelihiyon</p>
+                                </div>
+                            </div>
+
+                            <!-- Pagmamano -->
+                            <div class="gallery-card" onclick="openModal('Pagmamano', 'Kaugaliang nagpapakita ng paggalang sa nakatatanda sa pamamagitan ng paghawak sa noo ng nakababata gamit ang likod ng kamay ng nakatatanda. Nagmula ang salitang mano sa wikang Espanyol na nangangahulugang kamay. Nagsimula ito noong panahon ng Espanyol mula sa paghalik sa kamay ng mga prayle at naging tradisyon ng pamilya. Ang paghingi ng basbas na ito sa pamamagitan ng pagsabi ng mano po ay pinaniniwalaang nagdudulot ng kasaganaan at kaligtasan. <br><br><strong>Sources:</strong> <a href=\'http://www.ethnicgroupsphilippines.com/pagmamano-a-uniquely-filipino-gesture-of-respect/\' target=\'_blank\'>Pagmamano: Gesture of Respect</a>.')">
+                                <div class="media-container">
+                                    <img src="https://substackcdn.com/image/fetch/$s_!t3JL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F91fc8068-f607-4704-9b92-36bc0b89203d_1990x1252.jpeg" alt="Family blessing gesture" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-hand-holding-heart"></i> Pagmamano</h3>
+                                    <p>Respeto at Pamilyar na Bendisyon</p>
+                                </div>
+                            </div>
+
+                            <!-- Simbang Gabi -->
+                            <div class="gallery-card" onclick="openModal('Simbang Gabi at Misa de Gallo', 'Ang Simbang Gabi o Misa de Gallo (Misa ng Tandang) ay isang siyam na araw na nobena na nagpaparangal sa Mahal na Birheng Maria. Nagsisimula ito sa Disyembre 16 (o Disyembre 15 kung gabi) at nagtatapos sa Disyembre 24. Inaprubahan ng Santa Sede ang mga Misa sa madaling araw noong 1600s upang mapaunlakan ang mga magsasaka at mangingisda bago simulan ang trabaho. <br><br><strong>Sources:</strong> <a href=\'https://dioceseofbrooklyn.org/ethnic-apostolates/filipino/simbang-gabi/\' target=\'_blank\'>Diocese of Brooklyn: Simbang Gabi Tradition</a>.')">
+                                <div class="media-container">
+                                    <img src="https://1cms-img.imgix.net/Simbang-Gabi-Marikina-2023.JPG" alt="Christmas church service" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-church"></i> Simbang Gabi</h3>
+                                    <p>Kulturang Pamana ng Pasko</p>
+                                </div>
+                            </div>
+
+                            <!-- Poong Nazareno -->
+                            <div class="gallery-card" onclick="openModal('Pista ng Poong Nazareno', 'Ang imahen ng Poong Nazareno ay inukit ng isang iskultor na Mehikano at dinala sa Maynila noong 1606 ng mga paring Augustinian Recollect via galleon. Inilipat ito sa Simbahan ng Quiapo noong 1787, na siyang pinagmulan ng prusisyon ng Traslacion. Sa pamamagitan ng paglalakad nang nakayapak at paghila sa andas, ipinapakita ng mga deboto ang panata, sakripisyo, at utang na loob sa Diyos na nakikiramay sa dusa ng tao. <br><br><strong>Sources:</strong> Minor Basilica of the Black Nazarene Records & Research Documentation.')">
+                                <div class="media-container">
+                                    <img src="https://www.occatholic.com/wp-content/uploads/2024/03/4x3Nazareno3.png" alt="Religious procession in Quiapo" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-cross"></i> Poong Nazareno</h3>
+                                    <p>Debosyon at Traslacion</p>
+                                </div>
+                            </div>
+
+                            <!-- Folk Catholicism -->
+                            <div class="gallery-card" onclick="openModal('Philippine Folk Catholicism', 'Ang Philippine folk Catholicism ay ang syncretic blend ng Spanish-colonial Catholicism at pre-Hispanic indigenous animism. Isinama ng mga Pilipino ang mga ritwal na animista sa mga Kristiyanong balangkas upang mapanatili ang kanilang kultura. Makikita ito sa paggamit ng anting-anting, oraciones ng mga albularyo, at pagtrato sa mga santo na katulad ng mga anito. Ang mga kapistahan tulad ng Sayaw ng Pagkamayabong sa Obando ay direktang umunlad mula sa mga ritwal na ito. <br><br><strong>Sources:</strong> <a href=\'https://thenonviolenceproject.wisc.edu/2023/05/22/deconstructing-folk-catholicism/\' target=\'_blank\'>Deconstructing Folk Catholicism (UW-Madison)</a>.')">
+                                <div class="media-container">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Agimat.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Folk religious ritual objects" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-wand-sparkles"></i> Folk Catholicism</h3>
+                                    <p>Syncretism at Tradisyonal na Paniniwala</p>
+                                </div>
+                            </div>
+
+                            <!-- Pahiyas Festival -->
+                            <div class="gallery-card" onclick="openModal('Pahiyas Festival', 'Ginaganap ang Pahiyas Festival tuwing Mayo 15 sa Lucban, Quezon bilang pagpaparangal kay San Isidro Labrador para sa masaganang ani. Pinalamutian ng mga residente ang kanilang mga bahay gamit ang mga lokal na ani at kiping o makukulay na wafer ng bigas. Nagsimula ito nang ipakita ng mga magsasaka ang ani sa harapan ng bahay upang mabasbasan ng pari. Tampok din dito ang Prusisyon ni San Isidro, mga lucbanin o higanteng puppet, at lokal na lutuin tulad ng Pancit Habhab at Lucban Longganisa. <br><br><strong>Sources:</strong> <a href=\'https://www.agoda.com/travel-guides/philippines/pahiyas-festival-discover-the-colorful-celebration-in-lucban/\' target=\'_blank\'>Pahiyas Festival Guide in Lucban</a>.')">
+                                <div class="media-container">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlcHTMEcdNjwPAqC04b5wMfZJHqZaStoUaWkBRLYS2dGu7iCvGRGG5Ug&s=10" alt="Colorful harvest festival decorations" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-seedling"></i> Pahiyas Festival</h3>
+                                    <p>Pasasalamat sa Masaganang Ani</p>
+                                </div>
+                            </div>
+
+                            <!-- Pista ng Santo Niño -->
+                            <div class="gallery-card" onclick="openModal('Pista ng Santo Niño', 'Ipinagdiriwang tuwing ikatlong linggo ng Enero ang Kapistahan ng Santo Niño bilang pagpaparangal sa Banal na Sanggol na si Hesukristo. Dinala ni Ferdinand Magellan ang imahe sa Cebu noong 1521 at ibinigay kina Rajah Humabon at Reyna Juana. Ang debosyong ito ay nagbunga ng malalaking pagdiriwang tulad ng Sinulog Festival, Ati-Atihan sa Aklan, Dinagyang sa Iloilo, at Binanog Festival. <br><br><strong>Sources:</strong> <a href=\'https://www.sanluispampanga.gov.ph/happy-fiesta-sto-nino/\' target=\'_blank\'>LGU San Luis Pampanga: Sto. Niño Documentation</a>.')">
+                                <div class="media-container">
+                                    <img src="https://i0.wp.com/rmn.ph/wp-content/uploads/2023/01/STO-NINO-1.jpg?fit=1280%2C720&ssl=1" alt="Santo Nino Festival" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-child-rearing"></i> Pista ng Santo Niño</h3>
+                                    <p>Pagpaparangal sa Banal na Sanggol</p>
+                                </div>
+                            </div>
+
+                            <!-- Pabasa ng Pasyon -->
+                            <div class="gallery-card" onclick="openModal('Pabasa ng Pasyon', 'Ang Pabasa ng Pasyon ay ang patuloy na pag-awit o pagbigkas sa buhay, pagdurusa, kamatayan, at muling pagkabuhay ni Hesus tuwing Mahal na Araw. Nagsimula ito noong ika-17 siglo gamit ang mga aklat tulad ng Pasyon Henesis (1814). Isinasagawa ito sa mga simbahan, kapilya, o tirahan sa loob ng 12 hanggang 24 na oras bilang sagradong panata. <br><br><strong>Sources:</strong> <a href=\'https://www.catholicsandcultures.org/philippines-centuries-old-tradition-chanting-passion-continues\' target=\'_blank\'>Catholics & Cultures: Chanting Passion</a>.')">
+                                <div class="media-container">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQOxG129RntytZhr5tDrpXeplPhlQfZTaucUJIhC4wFKDh5ubc67GCwY&s=10" alt="Chanting the Pasyon" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-book-open-reader"></i> Pabasa ng Pasyon</h3>
+                                    <p>Tradisyonal na Awit ng Mahal na Araw</p>
+                                </div>
+                            </div>
+
+                            <!-- Visita Iglesia -->
+                            <div class="gallery-card" onclick="openModal('Visita Iglesia', 'Ang Visita Iglesia ay ang pagbisita sa pitong simbahan tuwing Huwebes Santo upang samahan si Hesus sa kanyang huling pitong paglalakbay mula sa pag-aresto hanggang sa pagpapako sa krus. Isa itong pagninilay-nilay sa Banal na Sakramento na nagpapakita ng ugnayan ng pananampalataya, arkitektura, at paglalakbay ng komunidad. <br><br><strong>Sources:</strong> <a href=\'https://www.aimsmuseomaritimo.com/post/pathways-of-faith-the-story-of-the-philippine-visita-iglesia\' target=\'_blank\'>AIMS Museo Maritimo: Visita Iglesia</a>.')">
+                                <div class="media-container">
+                                    <img src="https://media.interaksyon.com/wp-content/uploads/2020/01/Churchgoers-in-Manila-640x427.jpg" alt="Visita Iglesia" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-place-of-worship"></i> Visita Iglesia</h3>
+                                    <p>Paglalakbay sa Pitong Simbahan</p>
+                                </div>
+                            </div>
+
+                            <!-- Eid al-Fitr at Eid al-Adha -->
+                            <div class="gallery-card" onclick="openModal('Eid al-Fitr at Eid al-Adha', 'Ang Eid al-Fitr (pagtatapos ng Ramadan) at Eid al-Adha (Pista ng Sakripisyo) ay mahahalagang selebrasyon na nagpapakita ng espiritual na damdamin, pagkakaisa, at kabaitan ng mga Muslim na Pilipino. Tampok dito ang maagang pananalangin sa mga moske, pagkakasalo sa pagkain, at pagbibigay ng zakat sa mga nangangailangan. Ipinapakita rin nito ang pamana ng 13 etnolinguistikong grupo ng Muslim sa bansa. <br><br><strong>Sources:</strong> <a href=\'https://www.twinkl.com.au/blog/what-is-the-difference-between-eid-al-fitr-and-eid-al-adha-ramadan-early-years\' target=\'_blank\'>Twinkl: Eid Celebrations Guide</a>.')">
+                                <div class="media-container">
+                                    <img src="https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/eid-al-fitr-gettyimages-1148084709?_a=BAVMn6E80" alt="Islamic celebration" loading="lazy">
+                                </div>
+                                <div class="card-caption">
+                                    <h3><i class="fa-solid fa-moon"></i> Eid al-Fitr & Eid al-Adha</h3>
+                                    <p>Pagdiriwang ng Pananampalatayang Islam</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Navigation Controls -->
+                <div class="page-nav-controls">
+                    <button class="btn-secondary" onclick="navigateTo('content')">
+                        <i class="fa-solid fa-arrow-left"></i> Bumalik
+                    </button>
+                    <button class="btn-primary" onclick="navigateTo('about')">
+                        Susunod <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PAGE 4: ABOUT PAGE -->
+    <main id="page-about" class="page-view">
+        <section class="info-section">
+            <div class="container">
+                <span class="editorial-tag">TUNGKOL SA EXHIBIT</span>
+                <h2 class="section-title">Kalinangang Pilipino</h2>
+                <div class="content-card">
+                    <p>
+                        Ang digital exhibit na ito ay binuo bilang Performance Task para sa asignaturang PKLP sa NU Las Piñas. Layunin nitong itampok at preserbahin ang mayayamang tradisyon, paniniwala, at espiritwal na identidad ng mga Pilipino mula sa sinaunang anitismo hanggang sa mga makabagong selebrasyon at pamanang pamayanan. Ang pananampalataya ay isinasabuhay at matatagpuan sa mga sandali ng kabaitan, pagtitiis, pagpapatawad, at katapangan sa pang-araw-araw na buhay.
+                    </p>
+                </div>
+
+                <!-- Page Navigation Controls -->
+                <div class="page-nav-controls">
+                    <button class="btn-secondary" onclick="navigateTo('gallery')">
+                        <i class="fa-solid fa-arrow-left"></i> Bumalik
+                    </button>
+                    <button class="btn-primary" onclick="navigateTo('references')">
+                        Susunod <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PAGE 5: REFERENCES & TEAM MEMBERS PAGE -->
+    <main id="page-references" class="page-view">
+        <section class="info-section">
+            <div class="container">
+                <span class="editorial-tag">SANGGUNIAN AT KOPONAN</span>
+                <h2 class="section-title">Mga Sanggunian</h2>
+                <ul class="ref-list">
+                    <li>
+                        <a href="https://dioceseofbrooklyn.org/ethnic-apostolates/filipino/simbang-gabi/" target="_blank" class="ref-link">
+                            Diocese of Brooklyn: Simbang Gabi Tradition <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://thenonviolenceproject.wisc.edu/2023/05/22/deconstructing-folk-catholicism/" target="_blank" class="ref-link">
+                            Deconstructing Folk Catholicism (UW-Madison) <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.agoda.com/travel-guides/philippines/pahiyas-festival-discover-the-colorful-celebration-in-lucban/" target="_blank" class="ref-link">
+                            Pahiyas Festival Guide in Lucban <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ethnicgroupsphilippines.com/pagmamano-a-uniquely-filipino-gesture-of-respect/" target="_blank" class="ref-link">
+                            Pagmamano: Gesture of Respect <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.nationalmuseum.gov.ph/2022/04/15/senakulo/" target="_blank" class="ref-link">
+                            National Museum of the Philippines: Senakulo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank" class="ref-link">
+                            Scribd: Anitismo Document <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtu.be/SMZ4-b5bplQ?list=RDSMZ4-b5bplQ" target="_blank" class="ref-link">
+                            YouTube: Kahimanawari Background Track <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.sanluispampanga.gov.ph/happy-fiesta-sto-nino/" target="_blank" class="ref-link">
+                            LGU San Luis Pampanga: Pista ng Sto. Niño <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.catholicsandcultures.org/philippines-centuries-old-tradition-chanting-passion-continues" target="_blank" class="ref-link">
+                            Catholics & Cultures: Pabasa ng Pasyon <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.aimsmuseomaritimo.com/post/pathways-of-faith-the-story-of-the-philippine-visita-iglesia" target="_blank" class="ref-link">
+                            AIMS Museo Maritimo: Visita Iglesia <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twinkl.com.au/blog/what-is-the-difference-between-eid-al-fitr-and-eid-al-adha-ramadan-early-years" target="_blank" class="ref-link">
+                            Twinkl: Eid al-Fitr at Eid al-Adha <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <hr class="section-divider">
+
+                <h2 class="section-title">Mga Kasapi ng Pangkat</h2>
+                <div class="team-container">
+                    <div class="team-card lead-card">
+                        <i class="fa-solid fa-code"></i>
+                        <h4>LEAD PROGRAMMER</h4>
+                        <p>DIAZ</p>
+                    </div>
+                    <div class="team-card">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        <h4>RESEARCHERS</h4>
+                        <p>DIMAYUGA &bull; GARCIA &bull; ORTEGA &bull; OTIC</p>
+                    </div>
+                </div>
+
+                <!-- Page Navigation Controls -->
+                <div class="page-nav-controls">
+                    <button class="btn-secondary" onclick="navigateTo('about')">
+                        <i class="fa-solid fa-arrow-left"></i> Bumalik
+                    </button>
+                    <button class="btn-primary" onclick="navigateTo('home')">
+                        Ulitin sa Simula <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Component -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
