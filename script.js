@@ -95,15 +95,45 @@ const searchResults = document.getElementById('search-results');
 
 const searchableTopics = [
     { title: 'Paniniwalang Anitismo (Pangunahing Tampok)', page: 'content' },
-    { title: 'Ang Senakulo', page: 'gallery' },
-    { title: 'Pagmamano', page: 'gallery' },
-    { title: 'Simbang Gabi at Misa de Gallo', page: 'gallery' },
-    { title: 'Pista ng Poong Nazareno', page: 'gallery' },
-    { title: 'Philippine Folk Catholicism', page: 'gallery' },
-    { title: 'Pahiyas Festival', page: 'gallery' },
+    { title: 'Ang Senakulo', page: 'gallery', cardTitle: 'Ang Senakulo' },
+    { title: 'Pagmamano', page: 'gallery', cardTitle: 'Pagmamano' },
+    { title: 'Simbang Gabi at Misa de Gallo', page: 'gallery', cardTitle: 'Simbang Gabi' },
+    { title: 'Pista ng Poong Nazareno', page: 'gallery', cardTitle: 'Poong Nazareno' },
+    { title: 'Philippine Folk Catholicism', page: 'gallery', cardTitle: 'Folk Catholicism' },
+    { title: 'Pahiyas Festival', page: 'gallery', cardTitle: 'Pahiyas Festival' },
+    { title: 'Pista ng Santo Niño', page: 'gallery', cardTitle: 'Pista ng Santo Niño' },
+    { title: 'Pabasa ng Pasyon', page: 'gallery', cardTitle: 'Pabasa ng Pasyon' },
+    { title: 'Visita Iglesia', page: 'gallery', cardTitle: 'Visita Iglesia' },
+    { title: 'Eid al-Fitr at Eid al-Adha', page: 'gallery', cardTitle: 'Eid al-Fitr & Eid al-Adha' },
     { title: 'Tungkol sa Exhibit', page: 'about' },
     { title: 'Sanggunian at Koponan', page: 'references' }
 ];
+
+function normalizeCardTitle(title) {
+    return (title || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function getGalleryCardByTitle(targetTitle) {
+    const normalizedTarget = normalizeCardTitle(targetTitle);
+
+    return Array.from(document.querySelectorAll('.gallery-card')).find((card) => {
+        const heading = card.querySelector('.card-caption h3');
+        const cardTitle = heading ? heading.textContent : card.getAttribute('data-card-title') || '';
+        return normalizeCardTitle(cardTitle) === normalizedTarget;
+    }) || null;
+}
+
+function openGalleryCard(title) {
+    navigateTo('gallery');
+
+    setTimeout(() => {
+        const card = getGalleryCardByTitle(title);
+        if (!card) return;
+
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        card.click();
+    }, 180);
+}
 
 searchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase().trim();
@@ -123,9 +153,15 @@ searchInput.addEventListener('input', (e) => {
             const div = document.createElement('div');
             div.textContent = match.title;
             div.addEventListener('click', () => {
-                navigateTo(match.page);
                 searchResults.style.display = 'none';
                 searchInput.value = '';
+
+                if (match.page === 'gallery' && match.cardTitle) {
+                    openGalleryCard(match.cardTitle);
+                    return;
+                }
+
+                navigateTo(match.page);
             });
             searchResults.appendChild(div);
         });
