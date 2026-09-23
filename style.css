@@ -520,6 +520,7 @@ p a,
     scrollbar-width: none;
     -ms-overflow-style: none;
     cursor: grab;
+    touch-action: pan-y;
 }
 
 .carousel-viewport::-webkit-scrollbar {
