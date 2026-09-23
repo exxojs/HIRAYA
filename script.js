@@ -232,9 +232,11 @@ document.addEventListener('click', (e) => {
 const carouselWrapper = document.querySelector('.carousel-wrapper');
 const carouselTrack = document.getElementById('carousel-track');
 let autoScrollTimer = null;
-let isPointerDown = false;
+let isMouseDown = false;
 let isDragging = false;
-let lastPointerX = 0;
+let startX = 0;
+let scrollLeftPos = 0;
+const isHoverCapable = window.matchMedia('(hover: hover)').matches;
 
 const originalCards = Array.from(carouselTrack.children);
 originalCards.forEach(card => {
@@ -247,7 +249,7 @@ function getOriginalWidth() {
 }
 
 function startAutoScroll() {
-    if (autoScrollTimer || isPointerDown) return;
+    if (autoScrollTimer) return;
     autoScrollTimer = setInterval(() => {
         const halfWidth = getOriginalWidth();
         if (carouselWrapper.scrollLeft >= halfWidth) {
@@ -262,59 +264,63 @@ function stopAutoScroll() {
     autoScrollTimer = null;
 }
 
-carouselWrapper.addEventListener('pointerdown', (e) => {
-    isPointerDown = true;
+if (isHoverCapable) {
+    carouselWrapper.addEventListener('mouseenter', stopAutoScroll);
+    carouselWrapper.addEventListener('mouseleave', () => {
+        if (!isMouseDown) startAutoScroll();
+    });
+}
+
+carouselWrapper.addEventListener('mousedown', (e) => {
+    isMouseDown = true;
     isDragging = false;
-    lastPointerX = e.clientX;
     carouselWrapper.classList.add('grabbing');
+    startX = e.pageX - carouselWrapper.offsetLeft;
+    scrollLeftPos = carouselWrapper.scrollLeft;
     stopAutoScroll();
-    if (carouselWrapper.setPointerCapture) {
-        carouselWrapper.setPointerCapture(e.pointerId);
-    }
 });
 
-carouselWrapper.addEventListener('pointermove', (e) => {
-    if (!isPointerDown) return;
-    const deltaX = e.clientX - lastPointerX;
-    lastPointerX = e.clientX;
+carouselWrapper.addEventListener('mouseleave', () => {
+    isMouseDown = false;
+    carouselWrapper.classList.remove('grabbing');
+    if (!isHoverCapable) startAutoScroll();
+});
 
-    if (Math.abs(deltaX) > 4) {
+carouselWrapper.addEventListener('mouseup', () => {
+    isMouseDown = false;
+    carouselWrapper.classList.remove('grabbing');
+    if (!isHoverCapable) startAutoScroll();
+});
+
+carouselWrapper.addEventListener('mousemove', (e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - carouselWrapper.offsetLeft;
+    const walk = (x - startX) * 2;
+    if (Math.abs(walk) > 5) {
         isDragging = true;
     }
+    carouselWrapper.scrollLeft = scrollLeftPos - walk;
 
-    carouselWrapper.scrollLeft -= deltaX;
-
-    if (carouselWrapper.scrollLeft >= getOriginalWidth()) {
-        carouselWrapper.scrollLeft -= getOriginalWidth();
+    const halfWidth = getOriginalWidth();
+    if (carouselWrapper.scrollLeft >= halfWidth) {
+        carouselWrapper.scrollLeft -= halfWidth;
+        startX = e.pageX - carouselWrapper.offsetLeft;
+        scrollLeftPos = carouselWrapper.scrollLeft;
     } else if (carouselWrapper.scrollLeft <= 0) {
-        carouselWrapper.scrollLeft += getOriginalWidth();
+        carouselWrapper.scrollLeft += halfWidth;
+        startX = e.pageX - carouselWrapper.offsetLeft;
+        scrollLeftPos = carouselWrapper.scrollLeft;
     }
 });
 
-carouselWrapper.addEventListener('pointerup', () => {
-    isPointerDown = false;
-    isDragging = false;
-    carouselWrapper.classList.remove('grabbing');
+carouselWrapper.addEventListener('touchstart', () => {
+    stopAutoScroll();
+}, { passive: true });
+
+carouselWrapper.addEventListener('touchend', () => {
     startAutoScroll();
-});
-
-carouselWrapper.addEventListener('pointercancel', () => {
-    isPointerDown = false;
-    isDragging = false;
-    carouselWrapper.classList.remove('grabbing');
-    startAutoScroll();
-});
-
-carouselWrapper.addEventListener('pointerleave', () => {
-    if (!isPointerDown) {
-        startAutoScroll();
-    }
-});
-
-carouselWrapper.addEventListener('mouseenter', stopAutoScroll);
-carouselWrapper.addEventListener('mouseleave', () => {
-    if (!isPointerDown) startAutoScroll();
-});
+}, { passive: true });
 
 function handleCardClick(event, index) {
     if (isDragging) return;
@@ -322,7 +328,6 @@ function handleCardClick(event, index) {
 }
 
 startAutoScroll();
-window.addEventListener('resize', startAutoScroll);
 
 // Modal Logic & In-Card Topic Navigation
 function openModal(index) {
