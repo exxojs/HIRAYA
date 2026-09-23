@@ -4,6 +4,32 @@
     --accent-gold: #c5a059;
     --text-main: #ffffff;
     --text-muted: #8e8e8e;
+    --header-bg: rgba(10, 10, 10, 0.95);
+    --border-color: #222;
+    --input-bg: #1c1c1c;
+    --details-bg: #1a1a1a;
+    --pill-primary-bg: #1d1d1f;
+    --pill-primary-text: #ffffff;
+    --pill-secondary-bg: #ffffff;
+    --pill-secondary-text: #1d1d1f;
+    --pill-secondary-border: #e0e0e0;
+}
+
+body.light-theme {
+    --bg-dark: #f5f5f7;
+    --card-bg: #ffffff;
+    --accent-gold: #99001a;
+    --text-main: #1d1d1f;
+    --text-muted: #6e6e73;
+    --header-bg: rgba(245, 245, 247, 0.95);
+    --border-color: #e0e0e0;
+    --input-bg: #e8e8ed;
+    --details-bg: #f0f0f5;
+    --pill-primary-bg: #1d1d1f;
+    --pill-primary-text: #ffffff;
+    --pill-secondary-bg: #ffffff;
+    --pill-secondary-text: #1d1d1f;
+    --pill-secondary-border: #d2d2d7;
 }
 
 * {
@@ -17,13 +43,14 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer {
     text-align: center;
     padding: 25px 20px;
-    background-color: #000;
-    border-top: 1px solid #222;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
     font-size: 0.85rem;
     color: var(--text-muted);
 }
@@ -33,10 +60,10 @@ a,
 .brand-logo,
 .menu-trigger,
 .gallery-card,
-.carousel-btn,
 .search-dropdown div,
 .nav-links a,
-.ref-link {
+.ref-link,
+.pill-btn {
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -45,10 +72,10 @@ a:hover,
 .brand-logo:hover,
 .menu-trigger:hover,
 .gallery-card:hover,
-.carousel-btn:hover,
 .search-dropdown div:hover,
 .nav-links a:hover,
-.ref-link:hover {
+.ref-link:hover,
+.pill-btn:hover {
     animation: clickableBounce 0.6s ease-in-out;
 }
 
@@ -57,38 +84,21 @@ a:active,
 .brand-logo:active,
 .menu-trigger:active,
 .gallery-card:active,
-.carousel-btn:active,
 .search-dropdown div:active,
 .nav-links a:active,
-.ref-link:active {
+.ref-link:active,
+.pill-btn:active {
     transform: translateY(1px) scale(0.99);
 }
 
 @keyframes clickableBounce {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    30% {
-        transform: translateY(-2px) scale(1.01);
-    }
-    60% {
-        transform: translateY(-5px) scale(1.02);
-    }
-    100% {
-        transform: translateY(0) scale(1);
-    }
+    0%, 100% { transform: translateY(0) scale(1); }
+    30% { transform: translateY(-2px) scale(1.01); }
+    60% { transform: translateY(-5px) scale(1.02); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    button,
-    a,
-    .brand-logo,
-    .menu-trigger,
-    .gallery-card,
-    .carousel-btn,
-    .search-dropdown div,
-    .nav-links a,
-    .ref-link {
+    button, a, .brand-logo, .menu-trigger, .gallery-card, .search-dropdown div, .nav-links a, .ref-link, .pill-btn {
         transition: none;
         animation: none;
     }
@@ -117,8 +127,8 @@ a:active,
     left: 0;
     width: 100%;
     height: 70px;
-    background-color: rgba(10, 10, 10, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
     z-index: 1000;
     backdrop-filter: blur(10px);
 }
@@ -155,8 +165,8 @@ a:active,
 .search-input-wrapper {
     display: flex;
     align-items: center;
-    background-color: #1c1c1c;
-    border: 1px solid #2a2a2a;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 6px 15px;
 }
@@ -172,7 +182,7 @@ a:active,
     background: transparent;
     border: none;
     outline: none;
-    color: #fff;
+    color: var(--text-main);
     font-size: 0.88rem;
 }
 
@@ -181,8 +191,8 @@ a:active,
     top: 45px;
     left: 0;
     width: 100%;
-    background-color: #1c1c1c;
-    border: 1px solid #333;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     max-height: 250px;
     overflow-y: auto;
@@ -194,12 +204,12 @@ a:active,
     padding: 10px 15px;
     color: var(--text-main);
     cursor: pointer;
-    border-bottom: 1px solid #282828;
+    border-bottom: 1px solid var(--border-color);
     font-size: 0.88rem;
 }
 
 .search-dropdown div:hover {
-    background-color: #2a2a2a;
+    background-color: var(--details-bg);
     color: var(--accent-gold);
 }
 
@@ -218,9 +228,6 @@ a:active,
     font-size: 1.2rem;
     cursor: pointer;
     padding: 8px;
-}
-
-.audio-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -233,7 +240,7 @@ a:active,
     right: -300px;
     width: 300px;
     height: 100%;
-    background-color: #121212;
+    background-color: var(--card-bg);
     z-index: 1002;
     transition: right 0.3s ease;
     padding-top: 80px;
@@ -247,11 +254,11 @@ a:active,
     color: var(--text-main);
     text-decoration: none;
     font-size: 1rem;
-    border-bottom: 1px solid #1f1f1f;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .nav-links a:hover {
-    background-color: #1a1a1a;
+    background-color: var(--details-bg);
     color: var(--accent-gold);
 }
 
@@ -268,7 +275,7 @@ a:active,
 
 .nav-overlay.active { display: block; }
 
-/* 1. HOMEPAGE MOUNTAIN PROVINCE BACKGROUND (LOW EXPOSURE) */
+/* Hero Section */
 .hero-section {
     height: calc(100vh - 80px);
     display: flex;
@@ -293,7 +300,7 @@ a:active,
 
 .hero-content h1 {
     font-size: 2rem;
-    color: var(--text-main);
+    color: #ffffff;
     margin-bottom: 15px;
     letter-spacing: 1px;
     font-weight: 800;
@@ -308,7 +315,7 @@ a:active,
     margin-right: auto;
 }
 
-/* 2. FEATURED PAGE HORIZONTAL SPLIT LAYOUT */
+/* Featured Page Split Layout */
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -337,7 +344,7 @@ a:active,
     background-color: var(--card-bg);
     padding: 25px;
     border-radius: 8px;
-    border: 1px solid #222;
+    border: 1px solid var(--border-color);
     margin-bottom: 30px;
 }
 
@@ -361,55 +368,26 @@ a:active,
 
 .featured-text-content h2 {
     font-size: 2rem;
-    color: #ffffff;
+    color: var(--text-main);
     margin-bottom: 15px;
 }
 
 .featured-text-content p {
     font-size: 1.05rem;
     line-height: 1.8;
-    color: #d1d1d1;
+    color: var(--text-main);
 }
 
 .text-link,
 p a,
 .modal-content a {
-    color: #ffffff !important;
+    color: var(--accent-gold) !important;
     text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.7);
-    transition: transform 0.3s ease, opacity 0.3s ease, text-decoration-color 0.3s ease, text-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.text-link:hover,
-p a:hover,
-.modal-content a:hover {
-    transform: translateY(-2px);
-    opacity: 1;
-    text-decoration-color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
-}
-
-.text-link:hover::before,
-p a:hover::before,
-.modal-content a:hover::before,
-.ref-link:hover::before {
-    content: "";
-    position: absolute;
-    inset: -6px -10px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 8px;
-    z-index: -1;
-}
-
-/* Base Reference Link Styles */
 .ref-list li {
     margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
 }
 
 .ref-link {
@@ -423,8 +401,6 @@ p a:hover::before,
     gap: 10px;
     background-color: transparent;
     border: 1px solid transparent;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ref-link i {
@@ -434,14 +410,11 @@ p a:hover::before,
 
 .ref-link:hover {
     transform: translateY(-2px);
-    background-color: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background-color: var(--details-bg);
+    border-color: var(--border-color);
 }
 
-/* 3. CAROUSEL SIZED TO 350PX & LAG-FREE CSS ANIMATION */
+/* Gallery Carousel & Card Styles */
 .section-title {
     font-size: 1.8rem;
     color: var(--text-main);
@@ -460,7 +433,7 @@ p a:hover::before,
     overflow-x: auto;
     overflow-y: hidden;
     border-radius: 8px;
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
     cursor: grab;
@@ -482,13 +455,12 @@ p a:hover::before,
 }
 
 .gallery-card {
-    min-width: 400px;
-    max-width: 400px;
-    height: 400px;
+    min-width: 320px;
+    max-width: 320px;
     background-color: var(--card-bg);
-    border-radius: 6px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #222;
+    border: 1px solid var(--border-color);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -496,14 +468,13 @@ p a:hover::before,
 
 .media-container {
     width: 100%;
-    height: 230px;
+    height: 220px;
     background-color: #000;
     position: relative;
     overflow: hidden;
 }
 
-.media-container img,
-.media-container video {
+.media-container img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -511,53 +482,54 @@ p a:hover::before,
     object-fit: cover;
 }
 
-.media-container img {
-    z-index: 1;
-}
-
-.media-container video {
-    z-index: 2;
-}
-
 .card-caption {
-    padding: 15px;
+    padding: 18px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 6px;
 }
 
 .card-caption h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-main);
-    margin-bottom: 5px;
 }
 
 .card-caption p {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
 }
 
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: 1px solid #444;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.2s;
+/* Fun Fact Dropdown inside Modal */
+.fun-fact-dropdown {
+    background-color: var(--details-bg);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    margin: 18px 0 10px;
 }
 
-.carousel-btn:hover { background: rgba(255, 255, 255, 0.2); }
-.prev-btn { left: -15px; }
-.next-btn { right: -15px; }
+.fun-fact-dropdown summary {
+    font-weight: 600;
+    color: var(--accent-gold);
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
 
-/* 4. PAGE-TO-PAGE NAVIGATION BUTTONS */
+.fun-fact-dropdown summary i {
+    margin-right: 6px;
+}
+
+.fun-fact-dropdown p {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* Page Navigation Controls */
 .page-nav-controls {
     display: flex;
     justify-content: center;
@@ -574,38 +546,68 @@ p a:hover::before,
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.2s;
 }
 
 .btn-primary {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    background-color: var(--text-main);
+    color: var(--bg-dark);
+    border: 1px solid var(--text-main);
 }
 
 .btn-primary:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: transparent;
+    color: var(--text-main);
 }
 
 .btn-secondary {
     background-color: transparent;
     color: var(--text-muted);
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
-    color: #ffffff;
-    border-color: #ffffff;
+    color: var(--text-main);
+    border-color: var(--text-main);
 }
 
-/* Reference Links & Team Section */
-.ref-list { list-style: none; }
+/* In-Card Modal Topic Navigation Pill Buttons */
+.modal-nav-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.pill-btn {
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pill-btn-primary {
+    background-color: var(--pill-primary-bg);
+    color: var(--pill-primary-text);
+    border: 1px solid var(--pill-primary-bg);
+}
+
+.pill-btn-secondary {
+    background-color: var(--pill-secondary-bg);
+    color: var(--pill-secondary-text);
+    border: 1px solid var(--pill-secondary-border);
+}
 
 .section-divider {
     border: 0;
     height: 1px;
-    background: #222;
+    background: var(--border-color);
     margin: 35px 0;
 }
 
@@ -622,7 +624,7 @@ p a:hover::before,
     padding: 20px;
     border-radius: 6px;
     text-align: center;
-    border: 1px solid #222;
+    border: 1px solid var(--border-color);
 }
 
 .team-card i {
@@ -646,9 +648,9 @@ p a:hover::before,
     background-color: var(--card-bg);
     padding: 25px;
     border-radius: 8px;
-    border: 1px solid #222;
+    border: 1px solid var(--border-color);
     line-height: 1.8;
-    color: #d1d1d1;
+    color: var(--text-main);
 }
 
 /* Modal Popup */
@@ -659,7 +661,7 @@ p a:hover::before,
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.85);
+    background-color: rgba(0,0,0,0.75);
     z-index: 3000;
     justify-content: center;
     align-items: center;
@@ -669,33 +671,38 @@ p a:hover::before,
 .modal-content {
     background-color: var(--card-bg);
     padding: 30px;
-    border-radius: 8px;
-    max-width: 500px;
+    border-radius: 16px;
+    max-width: 550px;
     width: 100%;
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
     position: relative;
     line-height: 1.6;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content h2 {
-    color: #ffffff;
-    margin-bottom: 12px;
+    color: var(--text-main);
+    margin-bottom: 14px;
+    padding-right: 25px;
 }
 
 .modal-content p {
-    color: #d1d1d1;
+    color: var(--text-main);
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
-    color: #fff;
+    top: 15px;
+    right: 20px;
+    font-size: 1.6rem;
+    color: var(--text-muted);
     cursor: pointer;
 }
 
-/* Mobile Responsive */
+.close-btn:hover {
+    color: var(--text-main);
+}
+
 @media (max-width: 768px) {
     .featured-split-layout {
         flex-direction: column;
