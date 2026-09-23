@@ -9,6 +9,16 @@
 </head>
 <body class="light-theme">
 
+    <!-- Site-wide Animated Background (all pages) -->
+    <div class="site-bg-slideshow" aria-hidden="true">
+        <div class="site-bg-slide" style="background-image:url('https://www.travelandtourworld.com/wp-content/uploads/2026/05/a-breathtaking-panoramic-photograph-capt_j7fQaOuOQYe7ksEW4BQ9Ng_CW58BVomSnW5pLktF-mh3w_cover_sd.jpeg');"></div>
+        <div class="site-bg-slide" style="background-image:url('https://www.divergenttravelers.com/wp-content/uploads/edit-0391--800x533.jpg');"></div>
+        <div class="site-bg-slide" style="background-image:url('https://www.visitsoutheastasia.travel/wp-content/uploads/2023/01/shutterstock_1062273197.jpg');"></div>
+        <div class="site-bg-slide" style="background-image:url('https://i.natgeofe.com/n/85fa5197-f0cd-47a8-b429-eb9f1bb7cd9c/loboc-river-bohol-island-philippines.jpg');"></div>
+        <div class="site-bg-slide" style="background-image:url('https://media.istockphoto.com/id/1651886154/photo/bohol-loboc-river-cruise-on-philippines-palms-cloudy-sky-hills.jpg?s=612x612&w=0&k=20&c=WizfIrGJqJcfJvPuDBv3_9FvpzwKz367DqBf4rALhX0=');"></div>
+    </div>
+    <div class="site-bg-overlay" aria-hidden="true"></div>
+
     <!-- Header Navigation -->
     <header class="main-header">
         <div class="header-container">
@@ -26,14 +36,14 @@
 
             <div class="header-actions">
                 <!-- Theme Toggle Button -->
-                <button type="button" id="theme-toggle" class="audio-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme" style="color: #ffbb00;">
+                <button type="button" id="theme-toggle" class="audio-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
                     <i class="fa-solid fa-sun" id="theme-icon"></i>
                 </button>
-                <button type="button" id="music-toggle" class="audio-btn" title="Play background music" aria-label="play background music" style="color: #ffbb00;">
-                    <i class="fa-solid fa-music" style="color: #ffbb00;"></i>
+                <button type="button" id="music-toggle" class="audio-btn" title="Play background music" aria-label="play background music">
+                    <i class="fa-solid fa-music"></i>
                 </button>
-                <div class="menu-trigger" id="menu-trigger" style="color: #ffbb00;">
-                    <i class="fa-solid fa-bars" style="color: #ffbb00;"></i>
+                <div class="menu-trigger" id="menu-trigger">
+                    <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
         </div>
@@ -78,7 +88,7 @@
                 
                 <div class="featured-split-layout">
                     <div class="featured-media">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8K_bXtzTazUGjBYH_FkXIzvZhAxjbgIyoqafzQq-eeoCgbK9NOWrcmU4&s=10" alt="Anito Artifacts" class="feature-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Anitos_of_Northern_tribes_%28c._1900%2C_Philippines%29.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Anito Artifacts" class="feature-img">
                     </div>
                     <div class="featured-text-content">
                         <h2>Paniniwalang Anitismo</h2>
@@ -337,7 +347,7 @@
                     <div class="team-card">
                         <i class="fa-solid fa-magnifying-glass-chart"></i>
                         <h4>RESEARCHERS</h4>
-                        <p>BENAVIDEZ &bull; DIMAYUGA &bull; GARCIA &bull; ORTEGA &bull; OTIC</p>
+                        <p>BENAVIDES &bull; DIMAYUGA &bull; GARCIA &bull; ORTEGA &bull; OTIC</p>
                     </div>
                 </div>
 
@@ -356,7 +366,12 @@
     <!-- Modal Component with In-Card Navigation Controls -->
     <div id="details-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <button type="button" class="close-btn" onclick="closeModal()" aria-label="Close dialog">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-media">
+                <img id="modal-image" src="" alt="">
+            </div>
             <h2 id="modal-title"></h2>
             <div id="modal-description"></div>
             
