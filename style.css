@@ -932,9 +932,25 @@ p a,
         justify-content: center;
     }
 
+    .carousel-container {
+        margin-bottom: 20px;
+    }
+
+    .carousel-viewport {
+        overflow: visible;
+        cursor: default;
+    }
+
+    .carousel-track {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 16px;
+    }
+
     .gallery-card {
-        min-width: 260px;
-        max-width: 260px;
+        min-width: 100%;
+        max-width: 100%;
     }
 
     .modal {
