@@ -249,7 +249,7 @@ function getOriginalWidth() {
 }
 
 function startAutoScroll() {
-    if (autoScrollTimer) return;
+    if (window.innerWidth <= 768 || autoScrollTimer) return;
     autoScrollTimer = setInterval(() => {
         const halfWidth = getOriginalWidth();
         if (carouselWrapper.scrollLeft >= halfWidth) {
@@ -267,7 +267,7 @@ function stopAutoScroll() {
 if (isHoverCapable) {
     carouselWrapper.addEventListener('mouseenter', stopAutoScroll);
     carouselWrapper.addEventListener('mouseleave', () => {
-        if (!isMouseDown) startAutoScroll();
+        if (!isMouseDown && window.innerWidth > 768) startAutoScroll();
     });
 }
 
@@ -283,13 +283,13 @@ carouselWrapper.addEventListener('mousedown', (e) => {
 carouselWrapper.addEventListener('mouseleave', () => {
     isMouseDown = false;
     carouselWrapper.classList.remove('grabbing');
-    if (!isHoverCapable) startAutoScroll();
+    if (!isHoverCapable && window.innerWidth > 768) startAutoScroll();
 });
 
 carouselWrapper.addEventListener('mouseup', () => {
     isMouseDown = false;
     carouselWrapper.classList.remove('grabbing');
-    if (!isHoverCapable) startAutoScroll();
+    if (!isHoverCapable && window.innerWidth > 768) startAutoScroll();
 });
 
 carouselWrapper.addEventListener('mousemove', (e) => {
@@ -319,7 +319,7 @@ carouselWrapper.addEventListener('touchstart', () => {
 }, { passive: true });
 
 carouselWrapper.addEventListener('touchend', () => {
-    startAutoScroll();
+    if (window.innerWidth > 768) startAutoScroll();
 }, { passive: true });
 
 function handleCardClick(event, index) {
