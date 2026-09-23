@@ -1,3 +1,75 @@
+// Theme Toggle Switch (Default: Light Theme)
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+themeToggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle('light-theme');
+    if (document.body.classList.contains('light-theme')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+});
+
+// Gallery Topic Data Array
+const galleryTopics = [
+    {
+        title: "Ang Senakulo",
+        description: "Ang Senakulo ay isang tradisyunal na dulaang panrelihiyon na ginaganap sa kalsada tuwing Semana Santa na naglalarawan sa paghihirap at kamatayan ni Hesukristo. Nagmula ang pangalan nito sa salitang Cenaculo na tumutukoy sa Upper Room kung saan ginanap ang Huling Hapunan. Nagsimula ang pagtatanghal nito noong hulihan ng ika-17 siglo o unang bahagi ng ika-18 siglo mula sa mga aklat ng Pasyon. Karaniwan itong isinasagawa sa mga kalsada, bayan, at plaza. <br><br><strong>Sources:</strong> <a href='https://www.nationalmuseum.gov.ph/2022/04/15/senakulo/' target='_blank'>National Museum of the Philippines: Senakulo</a>.",
+        fact: "Ang ilang pagtatanghal ng Senakulo sa Pampanga at Bulacan ay tumatagal ng hanggang pitong sunod-sunod na gabi bago ang Biyernes Santo!"
+    },
+    {
+        title: "Pagmamano",
+        description: "Kaugaliang nagpapakita ng paggalang sa nakatatanda sa pamamagitan ng paghawak sa noo ng nakababata gamit ang likod ng kamay ng nakatatanda. Nagmula ang salitang mano sa wikang Espanyol na nangangahulugang kamay. Nagsimula ito noong panahon ng Espanyol mula sa paghalik sa kamay ng mga prayle at naging tradisyon ng pamilya. Ang paghingi ng basbas na ito sa pamamagitan ng pagsabi ng mano po ay pinaniniwalaang nagdudulot ng kasaganaan at kaligtasan. <br><br><strong>Sources:</strong> <a href='http://www.ethnicgroupsphilippines.com/pagmamano-a-uniquely-filipino-gesture-of-respect/' target='_blank'>Pagmamano: Gesture of Respect</a>.",
+        fact: "Bukod sa Pilipinas, matatagpuan din ang katulad na kaugalian ng paggalang sa Indonesia at Malaysia na tinatawag nilang 'Sungkeman'."
+    },
+    {
+        title: "Simbang Gabi at Misa de Gallo",
+        description: "Ang Simbang Gabi o Misa de Gallo (Misa ng Tandang) ay isang siyam na araw na nobena na nagpaparangal sa Mahal na Birheng Maria. Nagsisimula ito sa Disyembre 16 (o Disyembre 15 kung gabi) at nagtatapos sa Disyembre 24. Inaprubahan ng Santa Sede ang mga Misa sa madaling araw noong 1600s upang mapaunlakan ang mga magsasaka at mangingisda bago simulan ang trabaho. <br><br><strong>Sources:</strong> <a href='https://dioceseofbrooklyn.org/ethnic-apostolates/filipino/simbang-gabi/' target='_blank'>Diocese of Brooklyn: Simbang Gabi Tradition</a>.",
+        fact: "Ayon sa katutubong paniniwala, ang sinumang makakakompleto ng siyam na araw ng Simbang Gabi ay matutupad ang isang nakatagong kahilingan."
+    },
+    {
+        title: "Pista ng Poong Nazareno",
+        description: "Ang imahen ng Poong Nazareno ay inukit ng isang iskultor na Mehikano at dinala sa Maynila noong 1606 ng mga paring Augustinian Recollect via galleon. Inilipat ito sa Simbahan ng Quiapo noong 1787, na siyang pinagmulan ng prusisyon ng Traslacion. Sa pamamagitan ng paglalakad nang nakayapak at paghila sa andas, ipinapakita ng mga deboto ang panata, sakripisyo, at utang na loob sa Diyos na nakikiramay sa dusa ng tao. <br><br><strong>Sources:</strong> Minor Basilica of the Black Nazarene Records & Research Documentation.",
+        fact: "Ang maitim na kulay ng estatwa ay hindi dahil sa sunog sa barko tulad ng karaniwang paniniwala, kundi gawa ito sa mesquite wood na likas na madilim ang kulay."
+    },
+    {
+        title: "Philippine Folk Catholicism",
+        description: "Ang Philippine folk Catholicism ay ang syncretic blend ng Spanish-colonial Catholicism at pre-Hispanic indigenous animism. Isinama ng mga Pilipino ang mga ritwal na animista sa mga Kristiyanong balangkas upang mapanatili ang kanilang kultura. Makikita ito sa paggamit ng anting-anting, oraciones ng mga albularyo, at pagtrato sa mga santo na katulad ng mga anito. Ang mga kapistahan tulad ng Sayaw ng Pagkamayabong sa Obando ay direktang umunlad mula sa mga ritwal na ito. <br><br><strong>Sources:</strong> <a href='https://thenonviolenceproject.wisc.edu/2023/05/22/deconstructing-folk-catholicism/' target='_blank'>Deconstructing Folk Catholicism (UW-Madison)</a>.",
+        fact: "Maraming anting-anting ang may nakatagong Latin-sounding inscriptions na halo ng Espanyol, Latin, at katutubong wika para sa proteksyon."
+    },
+    {
+        title: "Pahiyas Festival",
+        description: "Ginaganap ang Pahiyas Festival tuwing Mayo 15 sa Lucban, Quezon bilang pagpaparangal kay San Isidro Labrador para sa masaganang ani. Pinalamutian ng mga residente ang kanilang mga bahay gamit ang mga lokal na ani at kiping o makukulay na wafer ng bigas. Nagsimula ito nang ipakita ng mga magsasaka ang ani sa harapan ng bahay upang mabasbasan ng pari. Tampok din dito ang Prusisyon ni San Isidro, mga lucbanin o higanteng puppet, at lokal na lutuin tulad ng Pancit Habhab at Lucban Longganisa. <br><br><strong>Sources:</strong> <a href='https://www.agoda.com/travel-guides/philippines/pahiyas-festival-discover-the-colorful-celebration-in-lucban/' target='_blank'>Pahiyas Festival Guide in Lucban</a>.",
+        fact: "Ang kiping na ginagamit sa dekorasyon ay gawa sa galapong ng bigas at pwede ring ihawin o iprito para kainin pagkatapos ng festival!"
+    },
+    {
+        title: "Pista ng Santo Niño",
+        description: "Ipinagdiriwang tuwing ikatlong linggo ng Enero ang Kapistahan ng Santo Niño bilang pagpaparangal sa Banal na Sanggol na si Hesukristo. Dinala ni Ferdinand Magellan ang imahe sa Cebu noong 1521 at ibinigay kina Rajah Humabon at Reyna Juana. Ang debosyong ito ay nagbunga ng malalaking pagdiriwang tulad ng Sinulog Festival, Ati-Atihan sa Aklan, Dinagyang sa Iloilo, at Binanog Festival. <br><br><strong>Sources:</strong> <a href='https://www.sanluispampanga.gov.ph/happy-fiesta-sto-nino/' target='_blank'>LGU San Luis Pampanga: Sto. Niño Documentation</a>.",
+        fact: "Ang Sto. Niño de Cebu ang pinakamatandang Kristiyanong relikya at imahen sa buong kapuluan ng Pilipinas."
+    },
+    {
+        title: "Pabasa ng Pasyon",
+        description: "Ang Pabasa ng Pasyon ay ang patuloy na pag-awit o pagbigkas sa buhay, pagdurusa, kamatayan, at muling pagkabuhay ni Hesus tuwing Mahal na Araw. Nagsimula ito noong ika-17 siglo gamit ang mga aklat tulad ng Pasyon Henesis (1814). Isinasagawa ito sa mga simbahan, kapilya, o tirahan sa loob ng 12 hanggang 24 na oras bilang sagradong panata. <br><br><strong>Sources:</strong> <a href='https://www.catholicsandcultures.org/philippines-centuries-old-tradition-chanting-passion-continues' target='_blank'>Catholics & Cultures: Chanting Passion</a>.",
+        fact: "Ang melody ng pag-awit sa Pasyon ay nag-iiba ayon sa rehiyon; ang iba ay gumagamit pa ng mga modernong pop o kundiman tunes para rito."
+    },
+    {
+        title: "Visita Iglesia",
+        description: "Ang Visita Iglesia ay ang pagbisita sa pitong simbahan tuwing Huwebes Santo upang samahan si Hesus sa kanyang huling pitong paglalakbay mula sa pag-aresto hanggang sa pagpapako sa krus. Isa itong pagninilay-nilay sa Banal na Sakramento na nagpapakita ng ugnayan ng pananampalataya, arkitektura, at paglalakbay ng komunidad. <br><br><strong>Sources:</strong> <a href='https://www.aimsmuseomaritimo.com/post/pathways-of-faith-the-story-of-the-philippine-visita-iglesia' target='_blank'>AIMS Museo Maritimo: Visita Iglesia</a>.",
+        fact: "Nagmula ang tradisyong ito sa Roma kung saan binibisita ng mga peregrino ang pitong pangunahing basilika ng lungsod bilang penitensya."
+    },
+    {
+        title: "Eid al-Fitr at Eid al-Adha",
+        description: "Ang Eid al-Fitr (pagtatapos ng Ramadan) at Eid al-Adha (Pista ng Sakripisyo) ay mahahalagang selebrasyon na nagpapakita ng espiritual na damdamin, pagkakaisa, at kabaitan ng mga Muslim na Pilipino. Tampok dito ang maagang pananalangin sa mga moske, pagkakasalo sa pagkain, at pagbibigay ng zakat sa mga nangangailangan. Ipinapakita rin nito ang pamana ng 13 etnolinguistikong grupo ng Muslim sa bansa. <br><br><strong>Sources:</strong> <a href='https://www.twinkl.com.au/blog/what-is-the-difference-between-eid-al-fitr-and-eid-al-adha-ramadan-early-years' target='_blank'>Twinkl: Eid Celebrations Guide</a>.",
+        fact: "Ang Islam ay dumating sa Pilipinas noong ika-14 na siglo sa pamamagitan ng Arabong mangangalakal na si Makhdum Karim sa Simunul, Tawi-Tawi."
+    }
+];
+
+let currentCardIndex = 0;
+
 // Multi-Page Router System
 const pages = {
     home: document.getElementById('page-home'),
@@ -54,17 +126,12 @@ menuTrigger.addEventListener('click', () => {
 
 navOverlay.addEventListener('click', closeNav);
 
-// Create the audio object
+// Audio Player
 const backgroundMusic = new Audio('Kahimanawari.mp3');
 const musicToggleBtn = document.getElementById('music-toggle');
-
-// Enable continuous looping
 backgroundMusic.loop = true;
-
-// Set default volume (0.0 to 1.0)
 backgroundMusic.volume = 0.5;
 
-// Function to start or pause audio after user interaction
 function startAudio() {
     if (backgroundMusic.paused) {
         backgroundMusic.play().then(() => {
@@ -85,7 +152,6 @@ if (musicToggleBtn) {
     });
 }
 
-// Listen for the first user click or key press
 document.addEventListener('click', startAudio);
 document.addEventListener('keydown', startAudio);
 
@@ -95,45 +161,19 @@ const searchResults = document.getElementById('search-results');
 
 const searchableTopics = [
     { title: 'Paniniwalang Anitismo (Pangunahing Tampok)', page: 'content' },
-    { title: 'Ang Senakulo', page: 'gallery', cardTitle: 'Ang Senakulo' },
-    { title: 'Pagmamano', page: 'gallery', cardTitle: 'Pagmamano' },
-    { title: 'Simbang Gabi at Misa de Gallo', page: 'gallery', cardTitle: 'Simbang Gabi' },
-    { title: 'Pista ng Poong Nazareno', page: 'gallery', cardTitle: 'Poong Nazareno' },
-    { title: 'Philippine Folk Catholicism', page: 'gallery', cardTitle: 'Folk Catholicism' },
-    { title: 'Pahiyas Festival', page: 'gallery', cardTitle: 'Pahiyas Festival' },
-    { title: 'Pista ng Santo Niño', page: 'gallery', cardTitle: 'Pista ng Santo Niño' },
-    { title: 'Pabasa ng Pasyon', page: 'gallery', cardTitle: 'Pabasa ng Pasyon' },
-    { title: 'Visita Iglesia', page: 'gallery', cardTitle: 'Visita Iglesia' },
-    { title: 'Eid al-Fitr at Eid al-Adha', page: 'gallery', cardTitle: 'Eid al-Fitr & Eid al-Adha' },
+    { title: 'Ang Senakulo', page: 'gallery', cardIndex: 0 },
+    { title: 'Pagmamano', page: 'gallery', cardIndex: 1 },
+    { title: 'Simbang Gabi at Misa de Gallo', page: 'gallery', cardIndex: 2 },
+    { title: 'Pista ng Poong Nazareno', page: 'gallery', cardIndex: 3 },
+    { title: 'Philippine Folk Catholicism', page: 'gallery', cardIndex: 4 },
+    { title: 'Pahiyas Festival', page: 'gallery', cardIndex: 5 },
+    { title: 'Pista ng Santo Niño', page: 'gallery', cardIndex: 6 },
+    { title: 'Pabasa ng Pasyon', page: 'gallery', cardIndex: 7 },
+    { title: 'Visita Iglesia', page: 'gallery', cardIndex: 8 },
+    { title: 'Eid al-Fitr at Eid al-Adha', page: 'gallery', cardIndex: 9 },
     { title: 'Tungkol sa Exhibit', page: 'about' },
     { title: 'Sanggunian at Koponan', page: 'references' }
 ];
-
-function normalizeCardTitle(title) {
-    return (title || '').replace(/\s+/g, ' ').trim().toLowerCase();
-}
-
-function getGalleryCardByTitle(targetTitle) {
-    const normalizedTarget = normalizeCardTitle(targetTitle);
-
-    return Array.from(document.querySelectorAll('.gallery-card')).find((card) => {
-        const heading = card.querySelector('.card-caption h3');
-        const cardTitle = heading ? heading.textContent : card.getAttribute('data-card-title') || '';
-        return normalizeCardTitle(cardTitle) === normalizedTarget;
-    }) || null;
-}
-
-function openGalleryCard(title) {
-    navigateTo('gallery');
-
-    setTimeout(() => {
-        const card = getGalleryCardByTitle(title);
-        if (!card) return;
-
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        card.click();
-    }, 180);
-}
 
 searchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase().trim();
@@ -156,8 +196,9 @@ searchInput.addEventListener('input', (e) => {
                 searchResults.style.display = 'none';
                 searchInput.value = '';
 
-                if (match.page === 'gallery' && match.cardTitle) {
-                    openGalleryCard(match.cardTitle);
+                if (match.page === 'gallery' && match.cardIndex !== undefined) {
+                    navigateTo('gallery');
+                    setTimeout(() => openModal(match.cardIndex), 180);
                     return;
                 }
 
@@ -177,7 +218,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Infinite Loop & Drag Carousel with Mobile Tap Fix
+// Carousel Smooth Auto-Scroll
 const carouselWrapper = document.querySelector('.carousel-wrapper');
 const carouselTrack = document.getElementById('carousel-track');
 let autoScrollTimer = null;
@@ -187,7 +228,6 @@ let startX = 0;
 let scrollLeftPos = 0;
 const isHoverCapable = window.matchMedia('(hover: hover)').matches;
 
-// Clone track cards for infinite looping
 const originalCards = Array.from(carouselTrack.children);
 originalCards.forEach(card => {
     const clone = card.cloneNode(true);
@@ -217,7 +257,6 @@ function stopAutoScroll() {
     autoScrollTimer = null;
 }
 
-// Pause rotation on hover for desktop
 if (isHoverCapable) {
     carouselWrapper.addEventListener('mouseenter', stopAutoScroll);
     carouselWrapper.addEventListener('mouseleave', () => {
@@ -225,7 +264,6 @@ if (isHoverCapable) {
     });
 }
 
-// Mouse Drag Events
 carouselWrapper.addEventListener('mousedown', (e) => {
     isMouseDown = true;
     isDragging = false;
@@ -269,7 +307,6 @@ carouselWrapper.addEventListener('mousemove', (e) => {
     }
 });
 
-// Mobile Touch Events
 carouselWrapper.addEventListener('touchstart', () => {
     stopAutoScroll();
 }, { passive: true });
@@ -278,25 +315,36 @@ carouselWrapper.addEventListener('touchend', () => {
     startAutoScroll();
 }, { passive: true });
 
-// Attach direct tap listeners to cards to prevent drag interference
-document.querySelectorAll('.gallery-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-        if (isDragging) {
-            e.preventDefault();
-            e.stopPropagation();
-            isDragging = false;
-            return;
-        }
-    });
-});
+function handleCardClick(event, index) {
+    if (isDragging) return;
+    openModal(index);
+}
 
 startAutoScroll();
 
-// Modal Logic
-function openModal(title, description) {
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal-description').innerHTML = description;
+// Modal Logic & In-Card Topic Navigation
+function openModal(index) {
+    currentCardIndex = index;
+    const item = galleryTopics[currentCardIndex];
+
+    document.getElementById('modal-title').innerText = item.title;
+    document.getElementById('modal-description').innerHTML = item.description;
+    document.getElementById('modal-fact-text').innerText = item.fact;
+
+    const detailsElement = document.getElementById('modal-fun-fact');
+    detailsElement.removeAttribute('open');
+
     document.getElementById('details-modal').style.display = 'flex';
+}
+
+function navigateCardTopic(direction) {
+    currentCardIndex += direction;
+    if (currentCardIndex < 0) {
+        currentCardIndex = galleryTopics.length - 1;
+    } else if (currentCardIndex >= galleryTopics.length) {
+        currentCardIndex = 0;
+    }
+    openModal(currentCardIndex);
 }
 
 function closeModal() {
