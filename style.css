@@ -456,14 +456,40 @@ p a,
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+body.light-theme .ref-group-title {
+    color: #ffffff;
+}
+
+body:not(.light-theme) .ref-group-title {
+    color: var(--accent-gold);
+}
+
+.ref-group-title {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ref-list-container {
+    max-height: min(42vh, 460px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: rgba(12, 14, 20, 0.18);
+}
+
 .ref-list {
     list-style: none;
-    padding-left: 0;
+    padding: 10px 0 0 0;
     margin: 0;
 }
 
 .ref-list li {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     color: #ffffff;
     list-style: none;
 }
@@ -471,12 +497,15 @@ p a,
 .ref-link {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.1rem;
-    padding: 12px 20px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: anywhere;
     background-color: transparent;
     border: 1px solid transparent;
 }
@@ -611,6 +640,28 @@ p a,
     font-size: 0.85rem;
     color: var(--text-main);
     line-height: 1.5;
+}
+
+.modal-video-container {
+    margin-top: 14px;
+}
+
+.modal-video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background-color: #000;
+}
+
+.modal-video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 /* Page Navigation Controls */
@@ -767,6 +818,9 @@ p a,
     border-radius: 16px;
     max-width: 550px;
     width: 100%;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     border: 1px solid var(--border-color);
     position: relative;
     line-height: 1.6;
