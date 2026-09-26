@@ -39,8 +39,8 @@
                 <button type="button" id="theme-toggle" class="audio-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Light/Dark Theme">
                     <i class="fa-solid fa-sun" id="theme-icon"></i>
                 </button>
-                <button type="button" id="music-toggle" class="audio-btn" title="Play background music" aria-label="play background music">
-                    <i class="fa-solid fa-music"></i>
+                <button type="button" id="music-toggle" class="audio-btn" title="Toggle music" aria-label="Toggle music">
+                    <i class="fa-solid fa-volume-xmark"></i>
                 </button>
                 <div class="menu-trigger" id="menu-trigger">
                     <i class="fa-solid fa-bars"></i>
@@ -93,7 +93,7 @@
                     <div class="featured-text-content">
                         <h2>Paniniwalang Anitismo</h2>
                         <p>
-                            Ang <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank" class="text-link">Anitismo</a> ay isang sistema ng paniniwala ng mga katutubong Pilipino na nakasentro sa mga anito o espiritu, mga ninuno, at sa kabanalan ng kalikasan. Hindi lamang ito isang relihiyon na isinasagawa sa mga seremonya, ito ay malapit na kaugnay sa pang-araw-araw na buhay. Ang salitang "anito" ay tumutukoy sa mga espiritu ng kalikasan o sa mga kaluluwa ng mga yumao nang ninuno. Naniniwala ang mga sinaunang Pilipino na ang kanilang mga pumanaw na kamag-anak ay patuloy na gumagabay at nagbabantay sa kanila. Naimpluwensyahan nito kung paano tinatratro ng mga tao ang kalikasan, nagsasaka, naghahanda ng pagkain, nag-aalaga sa pamilya, at tumutugon sa sakit. <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank">Scribd: Anitismo Document</a>.
+                            Ang <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank" class="text-link">Anitismo</a> ay isang sistema ng paniniwala ng mga katutubong Pilipino na nakasentro sa mga anito o espiritu, mga ninuno, at sa kabanalan ng kalikasan. Ang salitang "anito" ay tumutukoy sa mga espiritu ng kalikasan o sa mga kaluluwa ng mga yumao nang ninuno. Naniniwala ang mga sinaunang Pilipino na ang kanilang mga pumanaw na kamag-anak ay patuloy na gumagabay at nagbabantay sa kanila.  <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank">Scribd: Anitismo Document</a>.
                         </p>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                         <div class="carousel-track" id="carousel-track">
                             
                             <!-- Senakulo -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 0)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/hbyUTKy1Dyk?si=xfYQrbAP1g0qSzF3' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 0)">
                                 <div class="media-container">
                                     <img src="https://brahmineyes.wordpress.com/wp-content/uploads/2014/04/dsc_0064-2.jpg" alt="Senakulo procession" loading="lazy">
                                 </div>
@@ -133,7 +133,7 @@
                             </div>
 
                             <!-- Pagmamano -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 1)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/RAJmXZYNCPg?si=sYsSUkOdxk24bFZV' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 1)">
                                 <div class="media-container">
                                     <img src="https://substackcdn.com/image/fetch/$s_!t3JL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F91fc8068-f607-4704-9b92-36bc0b89203d_1990x1252.jpeg" alt="Family blessing gesture" loading="lazy">
                                 </div>
@@ -144,7 +144,7 @@
                             </div>
 
                             <!-- Simbang Gabi -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 2)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/9R2h31LLR70?si=TVgpbXH_edTXHWfu' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 2)">
                                 <div class="media-container">
                                     <img src="https://1cms-img.imgix.net/Simbang-Gabi-Marikina-2023.JPG" alt="Christmas church service" loading="lazy">
                                 </div>
@@ -155,7 +155,7 @@
                             </div>
 
                             <!-- Poong Nazareno -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 3)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/tzrUNTTQFHc?si=oGT6_lvut-V8aGAr' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 3)">
                                 <div class="media-container">
                                     <img src="https://www.occatholic.com/wp-content/uploads/2024/03/4x3Nazareno3.png" alt="Religious procession in Quiapo" loading="lazy">
                                 </div>
@@ -166,7 +166,7 @@
                             </div>
 
                             <!-- Folk Catholicism -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 4)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/BAUdWNkqLkc?si=cRwlZSKX18AYuWfk' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 4)">
                                 <div class="media-container">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Agimat.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Folk religious ritual objects" loading="lazy">
                                 </div>
@@ -177,7 +177,7 @@
                             </div>
 
                             <!-- Pahiyas Festival -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 5)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/9KPYxOrbtGE?si=qJmgzdNNT7plOpB9' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 5)">
                                 <div class="media-container">
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlcHTMEcdNjwPAqC04b5wMfZJHqZaStoUaWkBRLYS2dGu7iCvGRGG5Ug&s=10" alt="Colorful harvest festival decorations" loading="lazy">
                                 </div>
@@ -188,7 +188,7 @@
                             </div>
 
                             <!-- Pista ng Santo Niño -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 6)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/X-SE-RMZiBc?si=mm50h0llCwF_ilHd' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 6)">
                                 <div class="media-container">
                                     <img src="https://i0.wp.com/rmn.ph/wp-content/uploads/2023/01/STO-NINO-1.jpg?fit=1280%2C720&ssl=1" alt="Santo Nino Festival" loading="lazy">
                                 </div>
@@ -199,7 +199,7 @@
                             </div>
 
                             <!-- Pabasa ng Pasyon -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 7)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/J04yCXdTuAs?si=_FU74pajEVrprhme' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 7)">
                                 <div class="media-container">
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQOxG129RntytZhr5tDrpXeplPhlQfZTaucUJIhC4wFKDh5ubc67GCwY&s=10" alt="Chanting the Pasyon" loading="lazy">
                                 </div>
@@ -210,7 +210,7 @@
                             </div>
 
                             <!-- Visita Iglesia -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 8)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/7V5dSTQUULE?si=xIJNOMAtGUnJEe4N' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 8)">
                                 <div class="media-container">
                                     <img src="https://media.interaksyon.com/wp-content/uploads/2020/01/Churchgoers-in-Manila-640x427.jpg" alt="Visita Iglesia" loading="lazy">
                                 </div>
@@ -221,7 +221,7 @@
                             </div>
 
                             <!-- Eid al-Fitr at Eid al-Adha -->
-                            <div class="gallery-card" onclick="handleCardClick(event, 9)">
+                            <div class="gallery-card" data-video="<iframe width='560' height='315' src='https://www.youtube.com/embed/yDk7ygnn2E0?si=xESqdY0-Wu4ZCezw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>" onclick="handleCardClick(event, 9)">
                                 <div class="media-container">
                                     <img src="https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/eid-al-fitr-gettyimages-1148084709?_a=BAVMn6E80" alt="Islamic celebration" loading="lazy">
                                 </div>
@@ -277,63 +277,165 @@
             <div class="container">
                 <span class="editorial-tag">SANGGUNIAN AT KOPONAN</span>
                 <h2 class="section-title">Mga Sanggunian</h2>
-                <ul class="ref-list">
-                    <li>
-                        <a href="https://dioceseofbrooklyn.org/ethnic-apostolates/filipino/simbang-gabi/" target="_blank" class="ref-link">
-                            Diocese of Brooklyn: Simbang Gabi Tradition <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://thenonviolenceproject.wisc.edu/2023/05/22/deconstructing-folk-catholicism/" target="_blank" class="ref-link">
-                            Deconstructing Folk Catholicism (UW-Madison) <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.agoda.com/travel-guides/philippines/pahiyas-festival-discover-the-colorful-celebration-in-lucban/" target="_blank" class="ref-link">
-                            Pahiyas Festival Guide in Lucban <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.ethnicgroupsphilippines.com/pagmamano-a-uniquely-filipino-gesture-of-respect/" target="_blank" class="ref-link">
-                            Pagmamano: Gesture of Respect <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.nationalmuseum.gov.ph/2022/04/15/senakulo/" target="_blank" class="ref-link">
-                            National Museum of the Philippines: Senakulo <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank" class="ref-link">
-                            Scribd: Anitismo Document <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://youtu.be/SMZ4-b5bplQ?list=RDSMZ4-b5bplQ" target="_blank" class="ref-link">
-                            YouTube: Kahimanawari Background Track <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.sanluispampanga.gov.ph/happy-fiesta-sto-nino/" target="_blank" class="ref-link">
-                            LGU San Luis Pampanga: Pista ng Sto. Niño <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.catholicsandcultures.org/philippines-centuries-old-tradition-chanting-passion-continues" target="_blank" class="ref-link">
-                            Catholics & Cultures: Pabasa ng Pasyon <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.aimsmuseomaritimo.com/post/pathways-of-faith-the-story-of-the-philippine-visita-iglesia" target="_blank" class="ref-link">
-                            AIMS Museo Maritimo: Visita Iglesia <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.twinkl.com.au/blog/what-is-the-difference-between-eid-al-fitr-and-eid-al-adha-ramadan-early-years" target="_blank" class="ref-link">
-                            Twinkl: Eid al-Fitr at Eid al-Adha <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </li>
-                </ul>
+
+                <h3 class="ref-group-title">Mga Sanggunian sa Relihiyon at Tradisyon</h3>
+                <div class="ref-list-container">
+                    <ul class="ref-list">
+                        <li>
+                            <a href="https://www.catholicsandcultures.org/philippines-centuries-old-tradition-chanting-passion-continues" target="_blank" class="ref-link">
+                                Catholics &amp; Cultures. (2017, March 31). Pabása ng Pasyón: Chanting the passion for Holy Week in the Philippines. https://www.catholicsandcultures.org/philippines-centuries-old-tradition-chanting-passion-continues <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://dioceseofbrooklyn.org/ethnic-apostolates/filipino/simbang-gabi/" target="_blank" class="ref-link">
+                                Diocese of Brooklyn. (2024, December 6). Simbang Gabi (Misa de Gallo). https://dioceseofbrooklyn.org/ethnic-apostolates/filipino/simbang-gabi/ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.aimsmuseomaritimo.com/post/pathways-of-faith-the-story-of-the-philippine-visita-iglesia" target="_blank" class="ref-link">
+                                Museo Maritimo. (2026, March 30). Pathways of faith: The story of the Philippine Visita Iglesia. AIMS Museo Maritimo. https://www.aimsmuseomaritimo.com/post/pathways-of-faith-the-story-of-the-philippine-visita-iglesia <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.nationalmuseum.gov.ph/2022/04/15/senakulo/" target="_blank" class="ref-link">
+                                National Museum of the Philippines. (2022, April 15). Senakulo. https://www.nationalmuseum.gov.ph/2022/04/15/senakulo/ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.sanluispampanga.gov.ph/happy-fiesta-sto-nino/" target="_blank" class="ref-link">
+                                SanLuis2024_Admin. (2024, February 2). Happy Fiesta Sto. Niño! Official Website of Municipality of San Luis. https://www.sanluispampanga.gov.ph/happy-fiesta-sto-nino/ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3 class="ref-group-title">Mga Sanggunian sa Kultura at Paniniwala</h3>
+                <div class="ref-list-container">
+                    <ul class="ref-list">
+                        <li>
+                            <a href="https://www.scribd.com/document/705922236/Anitismo" target="_blank" class="ref-link">
+                                Client challenge. (n.d.). Scribd. https://www.scribd.com/document/705922236/Anitismo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.ethnicgroupsphilippines.com/pagmamano-a-uniquely-filipino-gesture-of-respect/" target="_blank" class="ref-link">
+                                Ethnic Groups of the Philippines. (2023, May 28). Pagmamano: A uniquely Filipino gesture of respect. http://www.ethnicgroupsphilippines.com/pagmamano-a-uniquely-filipino-gesture-of-respect/ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://thenonviolenceproject.wisc.edu/2023/05/22/deconstructing-folk-catholicism/" target="_blank" class="ref-link">
+                                Foor, C. (2023, May 22). Deconstructing Folk Catholicism: Combating Catholic hegemony during the Philippines’ colonial era. The Nonviolence Project, UW–Madison. https://thenonviolenceproject.wisc.edu/2023/05/22/deconstructing-folk-catholicism-combating-catholic-hegemony-during-the-philippines-colonial-era/ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3 class="ref-group-title">Mga Sanggunian sa Pagdiriwang at Katutubong Kultura</h3>
+                <div class="ref-list-container">
+                    <ul class="ref-list">
+                        <li>
+                            <a href="https://www.agoda.com/travel-guides/philippines/pahiyas-festival-discover-the-colorful-celebration-in-lucban/" target="_blank" class="ref-link">
+                                Agoda Travel Guides. (2025, April 27). Pahiyas Festival: Discover the colorful celebration in Lucban. Agoda: See the World for Less. https://www.agoda.com/travel-guides/philippines/pahiyas-festival-discover-the-colorful-celebration-in-lucban/ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.twinkl.com.au/blog/what-is-the-difference-between-eid-al-fitr-and-eid-al-adha-ramadan-early-years" target="_blank" class="ref-link">
+                                Rolls, A. (n.d.). What is the difference between Eid Al-Fitr and Eid Al-Adha? <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3 class="ref-group-title">Mga Pinagmulan ng Larawan at Musika</h3>
+                <div class="ref-list-container">
+                    <ul class="ref-list">
+                        <li>
+                            <a href="https://1cms-img.imgix.net/Simbang-Gabi-Marikina-2023.JPG" target="_blank" class="ref-link">
+                                1CMS. Simbang Gabi image source: https://1cms-img.imgix.net/Simbang-Gabi-Marikina-2023.JPG <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/eid-al-fitr-gettyimages-1148084709?_a=BAVMn6E80" target="_blank" class="ref-link">
+                                AENetworks / Getty-style image source: https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_3840,h_1920,g_auto/dpr_auto/f_auto/q_auto:eco/v1/eid-al-fitr-gettyimages-1148084709?_a=BAVMn6E80 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://brahmineyes.wordpress.com/wp-content/uploads/2014/04/dsc_0064-2.jpg" target="_blank" class="ref-link">
+                                Brahmineyes. Senakulo image source: https://brahmineyes.wordpress.com/wp-content/uploads/2014/04/dsc_0064-2.jpg <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.divergenttravelers.com/wp-content/uploads/edit-0391--800x533.jpg" target="_blank" class="ref-link">
+                                Divergent Travelers. Background image source: https://www.divergenttravelers.com/wp-content/uploads/edit-0391--800x533.jpg <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlcHTMEcdNjwPAqC04b5wMfZJHqZaStoUaWkBRLYS2dGu7iCvGRGG5Ug&s=10" target="_blank" class="ref-link">
+                                Google Images / Embedded source. Pahiyas Festival image source: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlcHTMEcdNjwPAqC04b5wMfZJHqZaStoUaWkBRLYS2dGu7iCvGRGG5Ug&s=10 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQOxG129RntytZhr5tDrpXeplPhlQfZTaucUJIhC4wFKDh5ubc67GCwY&s=10" target="_blank" class="ref-link">
+                                Google Images / Embedded source. Pabasa ng Pasyon image source: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQOxG129RntytZhr5tDrpXeplPhlQfZTaucUJIhC4wFKDh5ubc67GCwY&s=10 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://media.istockphoto.com/id/1651886154/photo/bohol-loboc-river-cruise-on-philippines-palms-cloudy-sky-hills.jpg?s=612x612&w=0&k=20&c=WizfIrGJqJcfJvPuDBv3_9FvpzwKz367DqBf4rALhX0=" target="_blank" class="ref-link">
+                                iStock. Background image source: https://media.istockphoto.com/id/1651886154/photo/bohol-loboc-river-cruise-on-philippines-palms-cloudy-sky-hills.jpg?s=612x612&w=0&k=20&c=WizfIrGJqJcfJvPuDBv3_9FvpzwKz367DqBf4rALhX0= <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://media.interaksyon.com/wp-content/uploads/2020/01/Churchgoers-in-Manila-640x427.jpg" target="_blank" class="ref-link">
+                                Interaksyon. Visita Iglesia image source: https://media.interaksyon.com/wp-content/uploads/2020/01/Churchgoers-in-Manila-640x427.jpg <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://i.natgeofe.com/n/85fa5197-f0cd-47a8-b429-eb9f1bb7cd9c/loboc-river-bohol-island-philippines.jpg" target="_blank" class="ref-link">
+                                National Geographic. Background image source: https://i.natgeofe.com/n/85fa5197-f0cd-47a8-b429-eb9f1bb7cd9c/loboc-river-bohol-island-philippines.jpg <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.occatholic.com/wp-content/uploads/2024/03/4x3Nazareno3.png" target="_blank" class="ref-link">
+                                OCCatholic. Poong Nazareno image source: https://www.occatholic.com/wp-content/uploads/2024/03/4x3Nazareno3.png <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://i0.wp.com/rmn.ph/wp-content/uploads/2023/01/STO-NINO-1.jpg?fit=1280%2C720&ssl=1" target="_blank" class="ref-link">
+                                RMN. Pista ng Santo Niño image source: https://i0.wp.com/rmn.ph/wp-content/uploads/2023/01/STO-NINO-1.jpg?fit=1280%2C720&ssl=1 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://substackcdn.com/image/fetch/$s_!t3JL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F91fc8068-f607-4704-9b92-36bc0b89203d_1990x1252.jpeg" target="_blank" class="ref-link">
+                                Substack. Pagmamano image source: https://substackcdn.com/image/fetch/$s_!t3JL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F91fc8068-f607-4704-9b92-36bc0b89203d_1990x1252.jpeg <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.travelandtourworld.com/wp-content/uploads/2026/05/a-breathtaking-panoramic-photograph-capt_j7fQaOuOQYe7ksEW4BQ9Ng_CW58BVomSnW5pLktF-mh3w_cover_sd.jpeg" target="_blank" class="ref-link">
+                                Travel and Tour World. Background image source: https://www.travelandtourworld.com/wp-content/uploads/2026/05/a-breathtaking-panoramic-photograph-capt_j7fQaOuOQYe7ksEW4BQ9Ng_CW58BVomSnW5pLktF-mh3w_cover_sd.jpeg <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.visitsoutheastasia.travel/wp-content/uploads/2023/01/shutterstock_1062273197.jpg" target="_blank" class="ref-link">
+                                Visit Southeast Asia. Background image source: https://www.visitsoutheastasia.travel/wp-content/uploads/2023/01/shutterstock_1062273197.jpg <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/f/fc/Anitos_of_Northern_tribes_%28c._1900%2C_Philippines%29.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" target="_blank" class="ref-link">
+                                Wikimedia Commons. Featured image source: https://upload.wikimedia.org/wikipedia/commons/f/fc/Anitos_of_Northern_tribes_%28c._1900%2C_Philippines%29.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Agimat.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" target="_blank" class="ref-link">
+                                Wikimedia Commons. Folk Catholicism image source: https://upload.wikimedia.org/wikipedia/commons/f/f3/Agimat.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/SMZ4-b5bplQ?list=RDSMZ4-b5bplQ" target="_blank" class="ref-link">
+                                YouTube: Kahimanawari Background Track. https://youtu.be/SMZ4-b5bplQ?list=RDSMZ4-b5bplQ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
                 <hr class="section-divider">
 
@@ -379,6 +481,8 @@
                 <summary><i class="fa-solid fa-lightbulb"></i> Karagdagang Kaalaman</summary>
                 <p id="modal-fact-text"></p>
             </details>
+
+            <div id="modal-video-container" class="modal-video-container" aria-live="polite"></div>
 
             <!-- Card Topic Navigation Buttons Inside Modal -->
             <div class="modal-nav-controls">
