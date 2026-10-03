@@ -469,7 +469,7 @@ const shopProducts = {
     'Lokot-Lokot Bites': {
         price: 20,
         quantityField: 'quantity_lokot',
-        imagePath: 'Lokot Chewy Crunchy/Lokot Chewy Crunchy/Close-quarter shot.jpg'
+        imagePath: 'Close-quarter shot.jpg'
     }
 };
 
