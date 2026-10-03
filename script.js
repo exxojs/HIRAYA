@@ -96,8 +96,16 @@ const pages = {
     content: document.getElementById('page-content'),
     gallery: document.getElementById('page-gallery'),
     about: document.getElementById('page-about'),
-    references: document.getElementById('page-references')
+    references: document.getElementById('page-references'),
+    shopHome: document.getElementById('page-shop-home'),
+    shopIntroduction: document.getElementById('page-shop-intro'),
+    shopAbout: document.getElementById('page-shop-about'),
+    shopCatalog: document.getElementById('page-shop-catalog'),
+    shopOrder: document.getElementById('page-shop-order')
 };
+
+const shopPageKeys = ['shopHome', 'shopIntroduction', 'shopAbout', 'shopCatalog', 'shopOrder'];
+let shopNavigationHistory = ['shopHome'];
 
 function navigateTo(pageKey) {
     Object.keys(pages).forEach(key => {
@@ -108,7 +116,29 @@ function navigateTo(pageKey) {
         pages[pageKey].classList.add('active-page');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    if (shopPageKeys.includes(pageKey)) {
+        const previousPage = shopNavigationHistory[shopNavigationHistory.length - 1];
+        if (previousPage !== pageKey) {
+            shopNavigationHistory.push(pageKey);
+            if (shopNavigationHistory.length > 8) {
+                shopNavigationHistory.shift();
+            }
+        }
+    }
+
     closeNav();
+}
+
+function goBackToPreviousShopPage() {
+    if (shopNavigationHistory.length <= 1) {
+        navigateTo('shopHome');
+        return;
+    }
+
+    shopNavigationHistory.pop();
+    const previousPage = shopNavigationHistory[shopNavigationHistory.length - 1];
+    navigateTo(previousPage);
 }
 
 // Global Nav Handlers
@@ -120,6 +150,11 @@ document.getElementById('nav-content').addEventListener('click', (e) => { e.prev
 document.getElementById('nav-gallery').addEventListener('click', (e) => { e.preventDefault(); navigateTo('gallery'); });
 document.getElementById('nav-about').addEventListener('click', (e) => { e.preventDefault(); navigateTo('about'); });
 document.getElementById('nav-references').addEventListener('click', (e) => { e.preventDefault(); navigateTo('references'); });
+document.getElementById('nav-shop-home').addEventListener('click', (e) => { e.preventDefault(); navigateTo('shopHome'); });
+document.getElementById('nav-shop-intro').addEventListener('click', (e) => { e.preventDefault(); navigateTo('shopIntroduction'); });
+document.getElementById('nav-shop-about').addEventListener('click', (e) => { e.preventDefault(); navigateTo('shopAbout'); });
+document.getElementById('nav-shop-catalog').addEventListener('click', (e) => { e.preventDefault(); navigateTo('shopCatalog'); });
+document.getElementById('nav-shop-order').addEventListener('click', (e) => { e.preventDefault(); navigateTo('shopOrder'); });
 
 // Side Drawer Controls
 const menuTrigger = document.getElementById('menu-trigger');
@@ -427,3 +462,202 @@ window.addEventListener('click', (e) => {
     const modal = document.getElementById('details-modal');
     if (e.target === modal) closeModal();
 });
+
+// Hiraya Shop interactions
+const shopProducts = {
+    'Satti Spice Crisps': { price: 20, quantityField: 'quantity_satti', imagePath: 'logoHIRAYA.png' },
+    'Lokot-Lokot Bites': {
+        price: 20,
+        quantityField: 'quantity_lokot',
+        imagePath: 'Lokot Chewy Crunchy/Lokot Chewy Crunchy/Close-quarter shot.jpg'
+    }
+};
+
+document.querySelectorAll('.shop-back-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+        goBackToPreviousShopPage();
+    });
+});
+
+document.querySelectorAll('.shop-open-catalog').forEach((button) => {
+    button.addEventListener('click', () => navigateTo('shopCatalog'));
+});
+
+document.querySelectorAll('.shop-order-product').forEach((button) => {
+    button.addEventListener('click', () => {
+        const product = shopProducts[button.dataset.product];
+        const quantityInput = document.querySelector(`[name="${product.quantityField}"]`);
+        quantityInput.value = Math.max(Number(quantityInput.value), 1);
+        quantityInput.setCustomValidity('');
+        updateShopOrderTotal();
+        document.getElementById('shop-order-confirmation').hidden = true;
+        navigateTo('shopOrder');
+    });
+});
+
+document.querySelectorAll('.shop-product-gallery').forEach((gallery) => {
+    const slides = [...gallery.querySelectorAll('.shop-product-slide')];
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+
+    function updateGallery(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle('active', slideIndex === currentIndex);
+        });
+    }
+
+    const prevButton = gallery.querySelector('.shop-gallery-prev');
+    const nextButton = gallery.querySelector('.shop-gallery-next');
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => updateGallery(currentIndex - 1));
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => updateGallery(currentIndex + 1));
+    }
+});
+
+const shopOrderForm = document.getElementById('shop-order-form');
+const shopOrderQuantityInputs = Object.values(shopProducts)
+    .map((product) => shopOrderForm.elements[product.quantityField]);
+const shopOrderTotal = document.getElementById('shop-order-total');
+const shopPaymentQr = document.getElementById('shop-payment-qr');
+const shopPaymentQrTitle = document.getElementById('shop-payment-qr-title');
+const shopPaymentQrImage = document.getElementById('shop-payment-qr-image');
+const shopPaymentQrImages = {
+    GCash: 'assets/gcashQR.jpg',
+    PayMaya: 'assets/mayaQR.jpg'
+};
+
+function formatShopPrice(amount) {
+    return amount.toLocaleString('en-PH', {
+        style: 'currency',
+        currency: 'PHP',
+        maximumFractionDigits: 0
+    });
+}
+
+function updateShopOrderTotal() {
+    const subtotal = Object.values(shopProducts).reduce((total, product) => {
+        return total + product.price * Number(shopOrderForm.elements[product.quantityField].value || 0);
+    }, 0);
+    shopOrderTotal.textContent = formatShopPrice(subtotal);
+}
+
+shopOrderQuantityInputs.forEach((input) => {
+    input.addEventListener('input', () => {
+        input.setCustomValidity('');
+        updateShopOrderTotal();
+    });
+});
+
+shopOrderForm.querySelectorAll('input[name="payment"]').forEach((input) => {
+    input.addEventListener('change', () => {
+        shopPaymentQrTitle.textContent = `${input.value} QR payment`;
+        shopPaymentQrImage.src = new URL(shopPaymentQrImages[input.value], document.baseURI).href;
+        shopPaymentQrImage.alt = `${input.value} payment QR code`;
+        shopPaymentQr.hidden = false;
+    });
+});
+updateShopOrderTotal();
+
+shopOrderForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    shopOrderQuantityInputs.forEach((input) => input.setCustomValidity(''));
+    if (!shopOrderQuantityInputs.some((input) => Number(input.value) > 0)) {
+        shopOrderQuantityInputs[0].setCustomValidity('Choose a quantity for at least one snack.');
+    }
+    if (!form.reportValidity()) return;
+
+    const order = new FormData(form);
+    const items = Object.entries(shopProducts)
+        .map(([name, product]) => ({
+            name,
+            units: Number(order.get(product.quantityField)),
+            unitPrice: product.price
+        }))
+        .filter((item) => item.units > 0);
+    const subtotal = items.reduce((sum, item) => sum + item.unitPrice * item.units, 0);
+    const total = formatShopPrice(subtotal);
+    const reference = `HIR-${Date.now().toString().slice(-6)}`;
+    const confirmation = document.getElementById('shop-order-confirmation');
+    const submitButton = form.querySelector('.shop-submit-order');
+    confirmation.hidden = true;
+    confirmation.classList.remove('is-error');
+    submitButton.disabled = true;
+
+    try {
+        await emailjs.send('service_tmve4sk', 'template_1vtrw0o', {
+            order_id: reference,
+            orders: items.map((item) => ({
+                name: item.name,
+                units: item.units,
+                price: formatShopPrice(item.unitPrice),
+                line_total: formatShopPrice(item.unitPrice * item.units),
+                image_url: new URL(shopProducts[item.name].imagePath, document.baseURI).href
+            })),
+            image_url: new URL('logoHIRAYA.png', document.baseURI).href,
+            customer_name: order.get('name'),
+            email: order.get('email'),
+            payment: order.get('payment'),
+            payment_status: 'Awaiting payment confirmation',
+            receipt_note: 'This is an order receipt only. Payment has not been verified.',
+            cost: {
+                subtotal: total,
+                shipping: 'To be confirmed',
+                tax: 'To be confirmed',
+                total
+            }
+        });
+
+        const itemSummary = items.map((item) => `${item.units} × ${item.name}`).join(', ');
+        confirmation.textContent = `Order receipt ${reference} sent: ${itemSummary}. Product subtotal: ${total}. Delivery and taxes are not included. Payment has not been verified; wait for confirmation of the final amount.`;
+    } catch (error) {
+        console.error('Unable to send the order request email.', error);
+        const errorDetails = [
+            error?.status,
+            error?.text || error?.message || String(error)
+        ].filter(Boolean).join(': ');
+        confirmation.textContent = `We could not send your order request. EmailJS error: ${errorDetails}. Check the service, template, and public key in your EmailJS account.`;
+        confirmation.classList.add('is-error');
+    } finally {
+        submitButton.disabled = false;
+        confirmation.hidden = false;
+        confirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+});
+
+function createHirayaShopLogo() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 160;
+    canvas.height = 160;
+    const context = canvas.getContext('2d');
+    context.fillStyle = '#99001a';
+    context.beginPath();
+    context.arc(80, 80, 76, 0, Math.PI * 2);
+    context.fill();
+    context.strokeStyle = '#f4c542';
+    context.lineWidth = 3;
+    context.beginPath();
+    context.arc(80, 80, 63, 0, Math.PI * 2);
+    context.stroke();
+    context.lineWidth = 5;
+    for (let ray = 0; ray < 12; ray += 1) {
+        const angle = (Math.PI * 2 * ray) / 12;
+        context.beginPath();
+        context.moveTo(80 + Math.cos(angle) * 30, 80 + Math.sin(angle) * 30);
+        context.lineTo(80 + Math.cos(angle) * 49, 80 + Math.sin(angle) * 49);
+        context.stroke();
+    }
+    context.fillStyle = '#f4f0e8';
+    context.beginPath();
+    context.arc(80, 80, 20, 0, Math.PI * 2);
+    context.fill();
+    return canvas.toDataURL('image/png');
+}
+
+document.getElementById('shop-logo-png').src = createHirayaShopLogo();
