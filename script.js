@@ -528,8 +528,8 @@ const shopPaymentQr = document.getElementById('shop-payment-qr');
 const shopPaymentQrTitle = document.getElementById('shop-payment-qr-title');
 const shopPaymentQrImage = document.getElementById('shop-payment-qr-image');
 const shopPaymentQrImages = {
-    GCash: 'assets/gcashQR.jpg',
-    PayMaya: 'assets/mayaQR.jpg'
+    GCash: 'gcashQR.jpg',
+    PayMaya: 'mayaQR.jpg'
 };
 
 function formatShopPrice(amount) {
