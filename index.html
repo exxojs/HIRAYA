@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "CIpeGN-gTR8HgEOlM",
+      });
+   })();
+</script>
+
 <body class="light-theme">
 
     <!-- Site-wide Animated Background (all pages) -->
@@ -57,6 +69,12 @@
             <a href="#" id="nav-gallery"><i class="fa-solid fa-images"></i> Galerya</a>
             <a href="#" id="nav-about"><i class="fa-solid fa-circle-info"></i> Tungkol sa Exhibit</a>
             <a href="#" id="nav-references"><i class="fa-solid fa-bookmark"></i> Sanggunian at Koponan</a>
+            <span class="nav-section-label">HIRAYA SHOP</span>
+            <a href="#" id="nav-shop-home"><i class="fa-solid fa-store"></i> Shop Home</a>
+            <a href="#" id="nav-shop-intro"><i class="fa-solid fa-box-open"></i> Product Introduction</a>
+            <a href="#" id="nav-shop-about"><i class="fa-solid fa-people-group"></i> About the Business</a>
+            <a href="#" id="nav-shop-catalog"><i class="fa-solid fa-basket-shopping"></i> Product Catalog</a>
+            <a href="#" id="nav-shop-order"><i class="fa-solid fa-clipboard-list"></i> Order</a>
         </div>
     </nav>
     <div class="nav-overlay" id="nav-overlay"></div>
@@ -465,6 +483,119 @@
         </section>
     </main>
 
+    <!-- Hiraya Shop: views are opened from the side navigation. -->
+    <main id="page-shop-home" class="page-view shop-page">
+        <section class="shop-home-hero">
+            <div class="shop-home-copy">
+                <span class="editorial-tag"><i class="fa-solid fa-sun"></i> HIRAYA SHOP · ZAMBOANGA, REIMAGINED</span>
+                <img id="shop-logo-png" class="shop-logo-png" alt="Hiraya Shop woven sun logo">
+                <h1>Zamboanga flavors.<br><span>A fresh crunch.</span></h1>
+                <p>Beloved local delicacies, reworked into playful snacks with a little more crunch and a lot of hometown character.</p>
+                <button type="button" class="btn-primary shop-open-catalog" data-shop-page="catalog">Meet the two snacks <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="shop-home-image">
+                <img src="Lokot%20Chewy%20Crunchy/Lokot%20Chewy%20Crunchy/Scenic%20view.jpg" alt="Lokot Chewy Crunchy snack pieces arranged on a banana leaf" loading="lazy">
+                <span>ROOTED IN ZAMBOANGA · MADE TO SHARE</span>
+            </div>
+        </section>
+        <div class="shop-home-note"><span>HIRAYA / A TASTE OF ZAMBOANGA</span><span>LOCAL DELICACIES, WITH A NEW TWIST</span></div>
+    </main>
+
+    <main id="page-shop-intro" class="page-view shop-page">
+        <section class="shop-editorial container">
+            <div class="shop-page-actions"><button type="button" class="shop-back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button></div>
+            <span class="editorial-tag"><i class="fa-solid fa-sparkles"></i> PRODUCT INTRODUCTION</span>
+            <div class="shop-intro-layout">
+                <div class="shop-intro-image"><img src="Lokot%20Chewy%20Crunchy/Lokot%20Chewy%20Crunchy/Solo%20shot.jpg" alt="Close-up of a Lokot snack packed in a paper cup" loading="lazy"></div>
+                <div class="shop-intro-copy"><h1>Old favorites,<br><span>new ways to snack.</span></h1><p>Hiraya takes inspiration from Zamboanga's much-loved delicacies and gives them a playful snack-sized twist.</p><p>Try Satti Spice Crisps, a crunchy cassava snack seasoned with the warmth of satti, or Lokot-Lokot Bites, a crisp, shareable take on the city's delicate rice treat.</p><button type="button" class="btn-primary shop-open-catalog" data-shop-page="catalog">View the two snacks <i class="fa-solid fa-arrow-right"></i></button></div>
+            </div>
+        </section>
+    </main>
+
+    <main id="page-shop-about" class="page-view shop-page">
+        <section class="shop-editorial container">
+            <div class="shop-page-actions"><button type="button" class="shop-back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button></div>
+            <span class="editorial-tag"><i class="fa-solid fa-heart"></i> ABOUT HIRAYA SHOP</span>
+            <h1 class="shop-section-title">Zamboanga's flavor,<br><span>made snackable.</span></h1>
+            <div class="shop-story-grid">
+                <article class="content-card"><h2>Our background</h2><p>Hiraya is a student-led snack concept inspired by the bold food culture of Zamboanga City. We take familiar delicacies like satti and lokot-lokot as a starting point for new, easy-to-share snack ideas.</p></article>
+                <article class="content-card"><h2>Our mission</h2><p>To preserve, explore, honor, and dignify the rich heritage of spirituality and Filipino cultural identity and its underlying aspects of how it made the Philippines the diverse country it is today. Through a digital exhibit, HIRAYA commits to engaging people of all ages about different aspects of Filipino traditions in order to safeguard and foster deep cultural appreciation of historical tradition.</p></article>
+                <article class="content-card"><h2>Our vision</h2><p>Hiraya is a cultural organization dedicated to keeping traditions alive and sharing them with the world. Through our platforms, we invite the public to explore and appreciate this rich culture while providing resources and products that allow people to experience and learn about it for themselves. Guided by the beliefs, traditions, and spiritual knowledge of Filipino culture, we offer deeper insights into the values and ideas that make it so meaningful and important.</p></article>
+            </div>
+            <div class="shop-team-layout">
+                <div><span class="editorial-tag">THE PEOPLE BEHIND THE SHOP</span><h2>Small team,<br><span>shared purpose.</span></h2><p>Our student team brings together food research, recipe development, visual design, and customer care to bring these Zamboanga-inspired snack ideas to life.</p><div class="shop-team-names"><span><strong>THE FLAVOR TEAM</strong> Local delicacies & snack concepts</span><span><strong>THE CREATIVES</strong> Brand, packaging & storytelling</span><span><strong>THE CONNECTORS</strong> Orders & customer care</span></div></div>
+                <figure class="shop-team-photo"><img src="assets/team-layout.png" alt="HIRAYA team organizational layout with team members and roles" loading="lazy"><figcaption>The Hiraya Shop team, bringing good ideas together.</figcaption></figure>
+            </div>
+        </section>
+    </main>
+
+    <main id="page-shop-catalog" class="page-view shop-page">
+        <section class="shop-editorial container">
+            <div class="shop-page-actions"><button type="button" class="shop-back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button></div>
+            <span class="editorial-tag"><i class="fa-solid fa-basket-shopping"></i> TWO ZAMBOANGA-INSPIRED SNACKS</span>
+            <h1 class="shop-section-title">Local favorites,<br><span>with a little twist.</span></h1>
+            <div class="shop-product-grid">
+                <article class="shop-product-card">
+                    <div class="shop-product-gallery" data-gallery="satti-placeholder">
+                        <button type="button" class="shop-gallery-btn shop-gallery-prev" aria-label="Previous Satti image"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="shop-gallery-btn shop-gallery-next" aria-label="Next Satti image"><i class="fa-solid fa-chevron-right"></i></button>
+                        <div class="shop-product-slide active"><div class="shop-product-placeholder"><span>COMING SOON</span></div></div>
+                        <div class="shop-product-slide"><div class="shop-product-placeholder"><span>SATTI</span></div></div>
+                        <div class="shop-product-slide"><div class="shop-product-placeholder"><span>UPCOMING</span></div></div>
+                    </div>
+                    <div class="shop-product-details"><div><h2>Satti Spice Crisps</h2><p>Coming soon: a crunchy cassava snack made for those who love warm, gently spicy local flavors.</p></div><strong>₱20</strong></div>
+                    <button class="btn-primary shop-order-product" data-product="Satti Spice Crisps" type="button">Order this snack <i class="fa-solid fa-arrow-right"></i></button>
+                </article>
+                <article class="shop-product-card">
+                    <div class="shop-product-gallery" data-gallery="lokot">
+                        <button type="button" class="shop-gallery-btn shop-gallery-prev" aria-label="Previous Lokot image"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="shop-gallery-btn shop-gallery-next" aria-label="Next Lokot image"><i class="fa-solid fa-chevron-right"></i></button>
+                        <div class="shop-product-slide active"><img src="Lokot%20Chewy%20Crunchy/Lokot%20Chewy%20Crunchy/Close-quarter%20shot.jpg" alt="Close-up of Lokot Chewy Crunchy dessert in paper cups" loading="lazy"></div>
+                        <div class="shop-product-slide"><img src="Lokot%20Chewy%20Crunchy/Lokot%20Chewy%20Crunchy/Product%20in%20container.jpg" alt="Lokot Chewy Crunchy product tray set in a container" loading="lazy"></div>
+                        <div class="shop-product-slide"><img src="Lokot%20Chewy%20Crunchy/Lokot%20Chewy%20Crunchy/Scenic%20view.jpg" alt="Lokot Chewy Crunchy snack pieces arranged on a banana leaf" loading="lazy"></div>
+                        <div class="shop-product-slide"><img src="Lokot%20Chewy%20Crunchy/Lokot%20Chewy%20Crunchy/Solo%20shot.jpg" alt="Close-up of a Lokot snack packed in a paper cup" loading="lazy"></div>
+                    </div>
+                    <div class="shop-product-details"><div><h2>Lokot-Lokot Bites</h2><p>Transforming the traditional Zamboanga "Lokot-Lokot" into a low-sugar, Dubai-inspired chewy-crunchy snack crafted for campus lifestyle.</p></div><strong>₱20</strong></div>
+                    <button class="btn-primary shop-order-product" data-product="Lokot-Lokot Bites" type="button">Order this snack <i class="fa-solid fa-arrow-right"></i></button>
+                </article>
+            </div>
+            <p class="shop-catalog-note">Snack concepts and prices are in Philippine pesos. We will confirm availability and delivery by email before payment.</p>
+        </section>
+    </main>
+
+    <main id="page-shop-order" class="page-view shop-page">
+        <section class="shop-editorial container">
+            <div class="shop-page-actions"><button type="button" class="shop-back-btn"><i class="fa-solid fa-arrow-left"></i> Back</button></div>
+            <span class="editorial-tag"><i class="fa-solid fa-bag-shopping"></i> PLACE AN ORDER</span>
+            <h1 class="shop-section-title">Bring a piece<br><span>home with you.</span></h1>
+            <div class="shop-order-layout">
+                <form id="shop-order-form" class="shop-order-form">
+                    <fieldset class="shop-order-items">
+                        <legend>Your order</legend>
+                        <div class="shop-order-item"><label for="shop-quantity-satti"><strong>Satti Spice Crisps</strong><small>₱20 each</small></label><input id="shop-quantity-satti" name="quantity_satti" type="number" min="0" max="20" value="0" aria-label="Satti Spice Crisps quantity"></div>
+                        <div class="shop-order-item"><label for="shop-quantity-lokot"><strong>Lokot-Lokot Bites</strong><small>₱20 each</small></label><input id="shop-quantity-lokot" name="quantity_lokot" type="number" min="0" max="20" value="0" aria-label="Lokot-Lokot Bites quantity"></div>
+                    </fieldset>
+                    <section class="shop-order-total" aria-live="polite">
+                        <span>Product subtotal</span>
+                        <strong id="shop-order-total">₱0</strong>
+                        <small>Delivery and taxes are not included. Wait for confirmation of the final amount before paying.</small>
+                    </section>
+                    <label for="shop-name">Full name</label><input id="shop-name" name="name" type="text" autocomplete="name" required>
+                    <label for="shop-email">Email address</label><input id="shop-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+                    <fieldset class="shop-payment-options"><legend>Preferred payment method</legend><label><input type="radio" name="payment" value="GCash" required><span class="shop-payment-mark gcash-mark">G</span><span><strong>GCash</strong><small>Mobile wallet</small></span></label><label><input type="radio" name="payment" value="PayMaya"><span class="shop-payment-mark maya-mark">M</span><span><strong>PayMaya</strong><small>Mobile wallet</small></span></label></fieldset>
+                    <div id="shop-payment-qr" class="shop-payment-qr" hidden aria-live="polite">
+                        <strong id="shop-payment-qr-title"></strong>
+                        <img id="shop-payment-qr-image" class="shop-payment-qr-image" alt="">
+                    </div>
+                    <p class="shop-payment-note">Scan the QR with your selected wallet. The product subtotal is shown above; wait for us to confirm the final amount, including delivery and taxes, before paying. The order email is a receipt of your request, not proof of payment.</p>
+                    <button class="btn-primary shop-submit-order" type="submit">Submit order request <i class="fa-solid fa-arrow-right"></i></button>
+                    <p id="shop-order-confirmation" class="shop-order-confirmation" role="status" aria-live="polite" hidden></p>
+                </form>
+                <aside class="shop-order-steps"><h2>What happens next</h2><ol><li><span>01</span><p>We receive your order request.</p></li><li><span>02</span><p>We email you to confirm stock, total, and delivery details.</p></li><li><span>03</span><p>We send GCash or PayMaya details once you confirm the order.</p></li></ol><p class="shop-contact-note">Questions? <a href="mailto:hiraya.shop02@gmail.com">hiraya.shop02@gmail.com</a></p></aside>
+            </div>
+        </section>
+    </main>
+
     <!-- Modal Component with In-Card Navigation Controls -->
     <div id="details-modal" class="modal">
         <div class="modal-content">
@@ -497,6 +628,7 @@
     </div>
 
     <footer>
+        <div class="shop-footer-info"><span><strong>HIRAYA ZAMBOANGA SNACKS</strong> · Questions or order inquiries? <a href="mailto:hiraya.shop02@gmail.com">hiraya.shop02@gmail.com</a></span><span>PAYMENT METHODS: <b class="gcash-footer-mark">G</b> GCash &nbsp; <b class="maya-footer-mark">M</b> PayMaya</span></div>
         <p>&copy; 2026 Interactive Digital Heritage Exhibit | NU Las Piñas Senior High School Department | 11SHS2602-CT | Group 2</p>
     </footer>
 
